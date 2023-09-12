@@ -1,0 +1,13 @@
+import { configureStore } from '@reduxjs/toolkit';
+import bikeReducer from './slices/bikeSlice'; 
+
+export const configureAppStore = () => {
+    return configureStore({
+      reducer: {
+        bikes: bikeReducer, // Assurez-vous que le nom correspond à celui défini dans le Slice
+      },
+      // Autres options de configuration, par exemple, middleware
+    });
+  };
+  
+  export const store = configureAppStore();
