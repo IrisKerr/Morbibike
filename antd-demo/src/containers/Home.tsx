@@ -7,10 +7,12 @@ import { RootState } from '../store/store';
 import BikeList from '../components/cards/BikeCardList';
 import BikeAddCard from "../components/cards/BikeAddCard"
 import { Typography } from 'antd';
+import { useAppSelector } from '../store/hooks';
 const { Title, Paragraph } = Typography;
 
 const Home: React.FC = () => {
-  const bikes = useSelector((state: RootState) => state.bikes)
+  const bikes = useAppSelector((state: RootState) => state.bikes.bikes)
+  
   console.log("vélos du store", bikes)
 
   const paragraphStyle: React.CSSProperties = {
