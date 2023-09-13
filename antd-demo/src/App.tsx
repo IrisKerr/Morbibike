@@ -10,9 +10,7 @@ import { store } from './store/store'
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <MainLayout>
-      <AppRoutes />
-    </MainLayout>
+    <AppRoutes />
   </Provider>
 )
 

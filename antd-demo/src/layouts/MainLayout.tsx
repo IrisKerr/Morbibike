@@ -6,11 +6,8 @@ import React, { ReactNode } from 'react'
 
 // imports de AntDesign
 import { Layout, Space } from 'antd'
+import { Outlet } from 'react-router-dom'
 const { Header, Footer, Content } = Layout
-
-interface MainLayoutProps {
-  children: ReactNode
-}
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'left',
@@ -40,12 +37,14 @@ const footerStyle: React.CSSProperties = {
   backgroundColor: '#FDBF6F',
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC = ({}) => {
   return (
     <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
       <Layout>
         <Header style={headerStyle}>Morbibike</Header>
-        <Content style={contentStyle}>{children}</Content>
+        <Content style={contentStyle}>
+          <Outlet />
+        </Content>
         <Footer style={footerStyle}>
           © 2023 Morbibike • Tous droits réservés
         </Footer>
