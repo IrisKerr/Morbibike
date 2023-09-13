@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, Row, Col  } from 'antd';
 import { Link } from 'react-router-dom';
-import { Velo } from '../models/types';
+import { Velo } from '../../models/types';
 
 
 interface BikeListProps {
@@ -15,6 +15,12 @@ const buttonStyle: React.CSSProperties = {
     color: '#FFFFFF',
   };
 
+  const cardStyle: React.CSSProperties = {
+    width: '300px',
+    margin: '16px',  
+    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', 
+  };
+
 const BikeList: React.FC<BikeListProps> = ({ bikes}) => {
 
 
@@ -26,7 +32,7 @@ const BikeList: React.FC<BikeListProps> = ({ bikes}) => {
         <Card
           key={bike.id}
           title={bike.name}
-          style={{ width: 300, margin: '16px' }}
+          style={cardStyle}
         ><Link to={`/bike/${bike.id}`}>
         <Button type="primary" style={buttonStyle}>Voir détails</Button>
       </Link>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'; 
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store'; 
-import BikeDetailCard from "../components/BikeDetailCard"
+import BikeDetailCard from "../components/cards/BikeDetailCard"
 // import { initialBikes } from "../data/initialData"
 import { Velo } from '../models/types';
 import { Typography } from 'antd';
