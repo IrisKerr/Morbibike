@@ -4,7 +4,7 @@ import { Velo } from "../models/types"
 export const initialBikes: Velo[] = [
   {
     id: 1,
-    name: 'Vélo 1',
+    name: 'Le VéloMouette',
     model: 'Modèle 1',
     year: 2021,
     bikeType: 'VTT',
@@ -13,7 +13,7 @@ export const initialBikes: Velo[] = [
   },
   {
     id: 2,
-    name: 'Vélo 2',
+    name: 'Le Tour de Brest en Véloveston',
     model: 'Modèle 2',
     year: 2022,
     bikeType: 'Vélo de route',
@@ -22,7 +22,7 @@ export const initialBikes: Velo[] = [
   },
   {
     id: 3,
-     name: 'Vélo 3',
+     name: 'Le Vélomaraichin',
      model: 'Modèle 3',
      year: 2021,
      bikeType: 'VTT',
@@ -31,7 +31,7 @@ export const initialBikes: Velo[] = [
    },
    {
      id: 4,
-     name: 'Vélo 4',
+     name: 'La petite bicyclette Bretonne',
      model: 'Modèle 4',
      year: 2023,
      bikeType: 'Vélo de ville',
@@ -40,7 +40,7 @@ export const initialBikes: Velo[] = [
    },
    {
      id: 5,
-     name: 'Vélo 5',
+     name: 'Le Kouign Amann en Selle',
      model: 'Modèle 5',
      year: 2023,
      bikeType: 'VTT',
