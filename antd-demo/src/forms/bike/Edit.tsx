@@ -17,7 +17,7 @@ interface FormValues {
     handleCancel: () => void;
   }
 
-const EditBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
+const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   const dispatch = useDispatch();
   //const [form] = Form.useForm();
 
@@ -31,4 +31,4 @@ const EditBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   );
 };
 
-export default EditBikeForm;
+export default Edit;
