@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd'; // Importez le composant Modal d'Ant Design
-import EditBikeForm from '../../forms/BikeCreateForm'; // Utilisez le composant de formulaire que nous avons créé précédemment
+import EditBikeForm from '../../forms/bike/Create'; // Utilisez le composant de formulaire que nous avons créé précédemment
 import { EditOutlined } from '@ant-design/icons';
 
 const EditBikeButton = () => {
