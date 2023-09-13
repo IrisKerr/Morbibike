@@ -1,5 +1,5 @@
 
-import { Velo } from "../types/types"
+import { Velo } from "../models/types"
 
 export const initialBikes: Velo[] = [
   {

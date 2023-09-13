@@ -1,24 +1,15 @@
 import React from 'react';
-
+// imports composants
 import AppRoutes from './routes/routes';
-import { ConfigProvider, theme } from 'antd';
+import MainLayout from './layouts/MainLayout';
+// imports styles CSS
 import './App.css';
 import './custom-theme.less'
 
-function App() {
-  return (
-    
-  //   <ConfigProvider
-  //   theme={{
-  //     algorithm: theme.darkAlgorithm,
-  //   }}
-  // >
-    <div className="App">
-      <AppRoutes />
-
-    </div>
-    // </ConfigProvider>
-  );
-}
+const App: React.FC = () => (
+  <MainLayout>
+    <AppRoutes /> 
+  </MainLayout>
+);
 
 export default App;

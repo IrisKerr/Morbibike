@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import bikeReducer from './slices/bikeSlice'; 
+import bikeReducer from './reducers/bikeSlice'; 
 
 export const configureAppStore = () => {
     return configureStore({

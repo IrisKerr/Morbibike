@@ -1,6 +1,6 @@
 // bikeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Velo } from '../../types/types'; // Assurez-vous d'importer les types nécessaires
+import { Velo } from '../../models/types'; // Assurez-vous d'importer les types nécessaires
 
 const bikeSlice = createSlice({
   name: 'bikes',

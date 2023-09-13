@@ -1,6 +1,6 @@
 // bikeActions.ts
 import { Dispatch } from 'redux';
-import { addBike } from '../slices/bikeSlice';
+import { addBike } from '../reducers/bikeSlice';
 import { initialBikes } from '../../data/initialData'; // Importez les données initiales
 
 export const loadInitialData = () => {
