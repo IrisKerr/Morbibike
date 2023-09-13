@@ -6,7 +6,7 @@ import React, { ReactNode } from 'react'
 
 // imports de AntDesign
 import { Layout, Space } from 'antd'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 const { Header, Footer, Content } = Layout
 
 const headerStyle: React.CSSProperties = {
@@ -41,7 +41,9 @@ const MainLayout: React.FC = ({}) => {
   return (
     <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
       <Layout>
-        <Header style={headerStyle}>Morbibike</Header>
+        <Header style={headerStyle}>
+          <Link to={'/'}>Morbibike</Link>
+        </Header>
         <Content style={contentStyle}>
           <Outlet />
         </Content>
