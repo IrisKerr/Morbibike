@@ -1,5 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
+import { useDispatch } from 'react-redux';
+import { addBike } from '../store/reducers/bikeSlice'; 
 
 const { Option } = Select;
 
@@ -10,10 +12,29 @@ interface FormValues {
     bikeType: string;
     color: string;
   }
-const CreateBikeForm = () => {
+
+  interface CreateBikeFormProps {
+    handleCancel: () => void;
+  }
+
+const CreateBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
+  const dispatch = useDispatch();
+  const [form] = Form.useForm();
+
   const onFinish = (values: FormValues) => {
-    // Gérer la soumission du formulaire ici, par exemple, en stockant les données dans Redux.
     console.log('Valeurs du formulaire :', values);
+    // Gérer la soumission du formulaire ici, par exemple, en stockant les données dans Redux.
+    const addNewBikeWithId = { ...values, id: Date.now(), rents: []}; // Utilisation de la timestamp comme ID pour simplifier
+ try {
+  dispatch(addBike(addNewBikeWithId ));
+  form.resetFields();
+  handleCancel();
+
+ } catch (error) {
+  console.error(error)
+ }
+    
+    
   };
 
   return (

@@ -3,6 +3,7 @@ import { Card, Button, Row, Col  } from 'antd';
 import { Link } from 'react-router-dom';
 import { Velo } from '../models/types';
 
+
 interface BikeListProps {
   bikes: Velo[];
 //   onEditClick: (bike: Velo) => void; // Callback pour gérer l'édition d'un vélo
@@ -15,6 +16,7 @@ const buttonStyle: React.CSSProperties = {
   };
 
 const BikeList: React.FC<BikeListProps> = ({ bikes}) => {
+
 
   return (
     <div>

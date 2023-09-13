@@ -24,7 +24,7 @@ const AddBikePage = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <CreateBikeForm />
+        <CreateBikeForm handleCancel={handleCancel}/>
       </Modal>
     </div>
   );
