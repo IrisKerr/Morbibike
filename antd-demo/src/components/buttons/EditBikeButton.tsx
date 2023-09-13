@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'antd'; // Importez le composant Modal d'Ant Design
-import EditBikeForm from '../../forms/BikeCreateForm'; // Utilisez le composant de formulaire que nous avons créé précédemment
-import { EditOutlined } from '@ant-design/icons';
+import React, { useState } from 'react'
+import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
+import EditBikeForm from '../../forms/BikeCreateForm' // Utilisez le composant de formulaire que nous avons créé précédemment
+import { EditOutlined } from '@ant-design/icons'
 
 const EditBikeButton = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   const handleShowCreateForm = () => {
-    setIsModalVisible(true);
-  };
+    setIsModalVisible(true)
+  }
 
   const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+    setIsModalVisible(false)
+  }
 
   return (
     <div>
-   
-
       <Button
-              type="primary" className="ant-btn" onClick={handleShowCreateForm}
-              icon={<EditOutlined />}
-            //   onClick={() => onEditClick(bike)}
-       
-            >
-              Modifier
-            </Button>
-
+        type="primary"
+        className="ant-btn"
+        onClick={handleShowCreateForm}
+        icon={<EditOutlined />}
+        //   onClick={() => onEditClick(bike)}
+      >
+        Modifier
+      </Button>
 
       <Modal
         title="Modification d'un Vélo"
@@ -34,10 +32,10 @@ const EditBikeButton = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <EditBikeForm handleCancel={handleCancel}/>
+        <EditBikeForm handleCancel={handleCancel} />
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default EditBikeButton;
+export default EditBikeButton

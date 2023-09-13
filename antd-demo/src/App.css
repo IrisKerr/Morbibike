@@ -39,13 +39,13 @@
 
 /* Styles pour les boutons Ant Design */
 button.ant-btn {
-  background-color: #FF5733;
-  border-color: #FF5733;
-  color: #FFFFFF;
+  background-color: #ff5733;
+  border-color: #ff5733;
+  color: #ffffff;
 }
 
 button.ant-btn:hover {
-  background-color: #e1864e; 
+  background-color: #e1864e;
   border-color: #ef7f3a;
-  color: #FFFFFF;
+  color: #ffffff;
 }
