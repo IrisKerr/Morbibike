@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
-import CreateBikeForm from '../../forms/BikeCreateForm' // Utilisez le composant de formulaire que nous avons créé précédemment
+import CreateBikeForm from '../../../forms/BikeCreateForm'
 
-const AddBikePage = () => {
+export const AddCard = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const handleShowCreateForm = () => {
@@ -30,4 +30,4 @@ const AddBikePage = () => {
   )
 }
 
-export default AddBikePage
+export type AddCardType = { AddCard: typeof AddCard }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
-import EditBikeForm from '../../forms/BikeCreateForm' // Utilisez le composant de formulaire que nous avons créé précédemment
-import { EditOutlined } from '@ant-design/icons'
+// import DeleteBikeForm from '../forms/BikeCreateForm'; // Utilisez le composant de formulaire que nous avons créé précédemment
+import { DeleteOutlined } from '@ant-design/icons'
 
-const EditBikeButton = () => {
+export const DeleteButton = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const handleShowCreateForm = () => {
@@ -20,22 +20,22 @@ const EditBikeButton = () => {
         type="primary"
         className="ant-btn"
         onClick={handleShowCreateForm}
-        icon={<EditOutlined />}
+        icon={<DeleteOutlined />}
         //   onClick={() => onEditClick(bike)}
       >
-        Modifier
+        Supprimer
       </Button>
 
       <Modal
-        title="Modification d'un Vélo"
+        title="Etes-vous sûr de vouloir supprimer ce vélo ?"
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={null}
       >
-        <EditBikeForm handleCancel={handleCancel} />
+        {/* <DeleteBikeForm handleCancel={handleCancel}/> */}
       </Modal>
     </div>
   )
 }
 
-export default EditBikeButton
+export type DeleteButtonType = { DeleteButton: typeof DeleteButton }

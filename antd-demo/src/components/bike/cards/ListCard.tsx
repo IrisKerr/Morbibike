@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button, Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
-import { Velo } from '../../models/types'
+import { Velo } from '../../../models/types'
 
 interface BikeListProps {
   bikes: Velo[]
@@ -20,7 +20,7 @@ const cardStyle: React.CSSProperties = {
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
 }
 
-const BikeList: React.FC<BikeListProps> = ({ bikes }) => {
+export const ListCard: React.FC<BikeListProps> = ({ bikes }) => {
   return (
     <div>
       <Row gutter={16} justify="center">
@@ -40,4 +40,4 @@ const BikeList: React.FC<BikeListProps> = ({ bikes }) => {
   )
 }
 
-export default BikeList
+export type ListCardType = { ListCard: typeof ListCard }

@@ -2,10 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-import BikeDetailCard from '../components/cards/BikeDetailCard'
+
 // import { initialBikes } from "../data/initialData"
 import { Velo } from '../models/types'
 import { Typography } from 'antd'
+import { Bike } from '../components/bike/Bike'
 const { Title } = Typography
 
 const BikeDetailContainer: React.FC = () => {
@@ -31,7 +32,7 @@ const BikeDetailContainer: React.FC = () => {
   return (
     <div>
       <Title level={3}>Détails du vélo</Title>
-      <BikeDetailCard bike={selectedBike} />
+      <Bike.DetailsCard bike={selectedBike} />
     </div>
   )
 }

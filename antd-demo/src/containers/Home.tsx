@@ -4,9 +4,8 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 
 // import { initialBikes } from "../data/initialData"
-import BikeList from '../components/cards/BikeCardList'
-import BikeAddCard from '../components/cards/BikeAddCard'
 import { Typography } from 'antd'
+import { Bike } from '../components/bike/Bike'
 const { Title, Paragraph } = Typography
 
 const Home: React.FC = () => {
@@ -45,11 +44,11 @@ const Home: React.FC = () => {
         Il les chérit tellement qu&apos;il les a baptisés en l&apos;honneur de
         sa chère région natale, la Bretagne.
       </Paragraph>
-      <BikeList bikes={bikes} />
+      <Bike.ListCard bikes={bikes} />
       <Title level={4} style={titleStyle}>
         Vous n&apos;avez pas trouvé votre bonheur ? Ajoutez votre propre vélo!
       </Title>
-      <BikeAddCard />
+      <Bike.AddCard />
     </div>
   )
 }
