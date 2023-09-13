@@ -23,17 +23,18 @@ const CreateBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
 
   const onFinish = (values: FormValues) => {
     console.log('Valeurs du formulaire :', values);
-    // Gérer la soumission du formulaire ici, par exemple, en stockant les données dans Redux.
+    // Gestion de la soumission du formulaire en stockant les données dans Redux
     const addNewBikeWithId = { ...values, id: Date.now(), rents: []}; // Utilisation de la timestamp comme ID pour simplifier
  try {
   dispatch(addBike(addNewBikeWithId ));
+  // réinitialisation du formulaire
   form.resetFields();
+  // fermeture de la modale
   handleCancel();
 
  } catch (error) {
   console.error(error)
- }
-    
+ } 
     
   };
 
