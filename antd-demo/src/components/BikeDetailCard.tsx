@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'antd';
-import { EditOutlined } from '@ant-design/icons'; 
+import { EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 import { Velo } from '../models/types';
 
 interface BikeDetailCardProps {
@@ -13,21 +14,30 @@ const BikeDetailCard: React.FC<BikeDetailCardProps> = ({bike}) => {
     <Card
           key={bike.id}
           title={bike.name}
-          extra={
-            <Button
-              type="primary"
-              icon={<EditOutlined />}
-            //   onClick={() => onEditClick(bike)}
-            >
-              Éditer
-            </Button>
-          }
+         
           style={{ width: 300, margin: '16px' }}
         >
           <p>Modèle: {bike.model}</p>
           <p>Année: {bike.year}</p>
           <p>Type de vélo: {bike.bikeType}</p>
           <p>Couleur: {bike.color}</p>
+          <Button
+              type="primary"
+              icon={<EditOutlined />}
+            //   onClick={() => onEditClick(bike)}
+            style={{ margin: '0 0.2rem' }}
+            >
+              Modifier
+            </Button>
+            <Button
+              type="primary"
+              icon={<DeleteOutlined />}
+            //   onClick={() => onEditClick(bike)}
+            style={{ margin: '0 0.2rem' }}
+            >
+              Supprimer
+            </Button>
+          
         </Card>
     </>
          

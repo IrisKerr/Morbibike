@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import BikeDetailCard from "../components/BikeDetailCard"
 import { initialBikes } from "../data/initialData"
 import { Velo } from '../models/types';
+import { Typography } from 'antd';
+const { Title } = Typography;
 
 const BikeDetailContainer: React.FC = () => {
     // Utilisez useParams() pour extraire l'ID du vélo à partir de l'URL
@@ -22,7 +24,7 @@ const BikeDetailContainer: React.FC = () => {
     
       return (
         <div>
-          <h1>Détails du vélo</h1>
+          <Title level={3}>Détails du vélo</Title>
           <BikeDetailCard bike={selectedBike} />
         </div>
       );

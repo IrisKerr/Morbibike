@@ -1,5 +1,6 @@
 // MainLayout.tsx
 import React, { ReactNode} from 'react';
+
 // import Header from "../components/Header"
 // import Footer from '../components/Header'; 
 
@@ -45,7 +46,9 @@ const MainLayout: React.FC<MainLayoutProps>  = ({ children }) => {
   return (
     <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
     <Layout>
-      <Header style={headerStyle}>Morbibike
+      <Header style={headerStyle}>
+      Morbibike
+        
       </Header>
       <Content style={contentStyle}>
      {children}

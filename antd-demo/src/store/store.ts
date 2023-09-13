@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import bikeReducer from './reducers/bikeSlice'; 
 
+// définition de Rootstate
+export type RootState = ReturnType<typeof store.getState>;
+
+
 export const configureAppStore = () => {
     return configureStore({
       reducer: {
-        bikes: bikeReducer, // Assurez-vous que le nom correspond à celui défini dans le Slice
+        bikes: bikeReducer, 
       },
-      // Autres options de configuration, par exemple, middleware
+  
     });
   };
   

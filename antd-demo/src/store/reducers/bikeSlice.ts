@@ -1,10 +1,11 @@
 // bikeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Velo } from '../../models/types'; // Assurez-vous d'importer les types nécessaires
+import { initialBikes } from '../../data/initialData'
 
 const bikeSlice = createSlice({
   name: 'bikes',
-  initialState: [] as Velo[], // L'état initial est un tableau de vélos
+  initialState: initialBikes as Velo[], // Utilisez initialBikes comme état initial
   reducers: {
     addBike: (state, action: PayloadAction<Velo>) => {
       state.push(action.payload); // Ajoute un nouveau vélo à l'état
