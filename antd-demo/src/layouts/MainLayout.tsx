@@ -25,6 +25,9 @@ interface MainLayoutProps {
   
   const contentStyle: React.CSSProperties = {
     textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', 
     minHeight: 120,
     lineHeight: '120px',
     color: '#EE651D',

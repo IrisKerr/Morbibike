@@ -13,7 +13,7 @@ export const initialBikes: Velo[] = [
   },
   {
     id: 2,
-    name: 'Le Tour de Brest en Véloveston',
+    name: 'Le Véloveston',
     model: 'Modèle 2',
     year: 2022,
     bikeType: 'Vélo de route',
@@ -47,6 +47,15 @@ export const initialBikes: Velo[] = [
      color: 'orange',
      rents: [],
    },
+   {
+    id: 6,
+    name: 'La crêpe filante',
+    model: 'Modèle 6',
+    year: 2023,
+    bikeType: 'Vélo de ville',
+    color: 'violette',
+    rents: [],
+  },
 
 ];
 

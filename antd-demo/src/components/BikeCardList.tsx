@@ -18,9 +18,9 @@ const BikeList: React.FC<BikeListProps> = ({ bikes}) => {
 
   return (
     <div>
-         <Row gutter={16}> 
+         <Row gutter={16} justify="center"> 
       {bikes.map((bike) => (
-         <Col span={8} key={bike.id}>
+         <Col md={12} lg={8} key={bike.id}>
         <Card
           key={bike.id}
           title={bike.name}

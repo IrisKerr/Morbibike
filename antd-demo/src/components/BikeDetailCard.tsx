@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Row, Col  } from 'antd';
+import { Card, Button } from 'antd';
 import { EditOutlined } from '@ant-design/icons'; 
 import { Velo } from '../models/types';
 
