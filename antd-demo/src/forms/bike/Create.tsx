@@ -1,42 +1,40 @@
-import React from 'react';
-import { Form, Input, Button, Select } from 'antd';
-import { useDispatch } from 'react-redux';
-import { addBike } from '../../store/reducers/bikeSlice'; 
+import React from 'react'
+import { Form, Input, Button, Select } from 'antd'
+import { useDispatch } from 'react-redux'
+import { addBike } from '../../store/reducers/bikeSlice'
 
-const { Option } = Select;
+const { Option } = Select
 
 interface FormValues {
-    name: string;
-    model: string;
-    year: number;
-    bikeType: string;
-    color: string;
-  }
+  name: string
+  model: string
+  year: number
+  bikeType: string
+  color: string
+}
 
-  interface CreateBikeFormProps {
-    handleCancel: () => void;
-  }
+interface CreateBikeFormProps {
+  handleCancel: () => void
+}
 
 const Create: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
-  const dispatch = useDispatch();
-  const [form] = Form.useForm();
+  const dispatch = useDispatch()
+  const [form] = Form.useForm()
 
   const onFinish = (values: FormValues) => {
-    console.log('Valeurs du formulaire :', values);
+    console.log('Valeurs du formulaire :', values)
     // Gestion de la soumission du formulaire en stockant les données dans Redux
-    const addNewBikeWithId = { ...values, id: Date.now(), rents: []}; // Utilisation de la timestamp comme ID pour simplifier
- try {
-  dispatch(addBike(addNewBikeWithId ));
-  // réinitialisation du formulaire
-  form.resetFields();
-  // fermeture de la modale
-  handleCancel();
-
- } catch (error) {
-  console.error(error)
- } 
-    
-  };
+    const addNewBikeWithId = { ...values, id: Date.now(), rents: [] } // Utilisation de la timestamp comme ID pour simplifier
+    try {
+      dispatch(addBike(addNewBikeWithId))
+      // réinitialisation du formulaire
+      form.resetFields()
+      // fermeture de la modale
+      handleCancel()
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <Form
@@ -78,11 +76,17 @@ const Create: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
         rules={[
           {
             required: true,
-            message: 'Veuillez saisir l\'année du vélo!',
+            message: "Veuillez saisir l'année du vélo!",
           },
         ]}
       >
-        <Input type="number" min="1990" max="2023" step="1" defaultValue={2023}   />
+        <Input
+          type="number"
+          min="1990"
+          max="2023"
+          step="1"
+          defaultValue={2023}
+        />
       </Form.Item>
 
       <Form.Item
@@ -121,7 +125,7 @@ const Create: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
         </Button>
       </Form.Item>
     </Form>
-  );
-};
+  )
+}
 
-export default Create;
+export default Create

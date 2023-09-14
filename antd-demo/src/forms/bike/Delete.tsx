@@ -1,13 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 interface Props {
-    id: number
+  id: number
 }
 
-const Delete = ({ id }:Props) => {
-  return (
-    <></>
-  );
-};
+const Delete = ({ id }: Props) => {
+  return <></>
+}
 
-export default Delete;
+export default Delete
