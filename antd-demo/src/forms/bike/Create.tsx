@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Input, Button, Select } from 'antd'
 import { useDispatch } from 'react-redux'
-import { addBike } from '../store/reducers/bikeSlice'
+import { addBike } from '../../store/reducers/bikeSlice'
 
 const { Option } = Select
 
@@ -17,7 +17,7 @@ interface CreateBikeFormProps {
   handleCancel: () => void
 }
 
-const CreateBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
+const Create: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   const dispatch = useDispatch()
   const [form] = Form.useForm()
 
@@ -38,6 +38,7 @@ const CreateBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
 
   return (
     <Form
+      form={form} // Important de linker la ref et le composant via la props form (voir doc antdesign)
       name="createBikeForm"
       onFinish={onFinish}
       labelCol={{ span: 6 }}
@@ -127,4 +128,4 @@ const CreateBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   )
 }
 
-export default CreateBikeForm
+export default Create

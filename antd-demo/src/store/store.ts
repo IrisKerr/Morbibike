@@ -13,3 +13,5 @@ export const configureAppStore = () => {
 }
 
 export const store = configureAppStore()
+
+export type AppDispatch = typeof store.dispatch
