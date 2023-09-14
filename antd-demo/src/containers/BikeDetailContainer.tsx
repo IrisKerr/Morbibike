@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store'; 
 import BikeDetailCard from "../components/cards/BikeDetailCard"
+import RentalForm from '../forms/RentalForm';
 // import { initialBikes } from "../data/initialData"
 import { Velo } from '../models/types';
 import { Typography } from 'antd';
@@ -30,6 +31,8 @@ const BikeDetailContainer: React.FC = () => {
         <div>
           <Title level={3}>Détails du vélo</Title>
           <BikeDetailCard bike={selectedBike} />
+          <Title level={3}>Je souhaite le louer</Title>
+          <RentalForm bikeId={bikeId} />
         </div>
       );
     };
