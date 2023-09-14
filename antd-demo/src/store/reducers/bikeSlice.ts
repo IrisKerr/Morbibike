@@ -18,15 +18,23 @@ const bikeSlice = createSlice({
     addBike: (state, action: PayloadAction<Velo>) => {
       state.bikes = [...state.bikes, action.payload]
     },
-    editBike: (
-      state,
-      action: PayloadAction<{ id: number; updatedBike: Velo }>
-    ) => {
-      const { id, updatedBike } = action.payload
-      const bikeIndex = state.bikes.findIndex((bike) => bike.id === id)
-      if (bikeIndex !== -1) {
-        state.bikes[bikeIndex] = updatedBike
-      }
+    // editBike: (
+    //   state,
+    //   action: PayloadAction<{ id: number; updatedBike: Velo }>
+    // ) => {
+    //   const { id, updatedBike } = action.payload
+    //   const bikeIndex = state.bikes.findIndex((bike) => bike.id === id)
+    //   if (bikeIndex !== -1) {
+    //     state.bikes[bikeIndex] = updatedBike
+    //   }
+    // },
+    editBike: (state, action: PayloadAction<Velo>) => {
+      state.bikes = state.bikes.map((bike) => {
+        if (action.payload.id === bike.id) {
+          return bike
+        }
+        return action.payload
+      })
     },
     deleteBike: (state, action: PayloadAction<number>) => {
       const bikeIdToDelete = action.payload

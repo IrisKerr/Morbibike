@@ -5,7 +5,7 @@ import { Velo } from '../../../models/types'
 import { Bike } from '../Bike'
 
 interface BikeDetailCardProps {
-  bike: Velo // Utilisez une seule instance de Velo pour afficher les détails d'un vélo spécifique
+  bike: Velo // instance de Velo pour afficher les détails d'un vélo spécifique
 }
 
 const buttonContainerStyle: React.CSSProperties = {

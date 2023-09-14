@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Rent } from '../../models/types'
 import { initialBikes } from '../../data/initialData'
 
-interface initialStateType {
+interface RentalState {
   rentals: Rent[]
 }
-const initialState: initialStateType = {
+const initialState: RentalState = {
   rentals: [],
 }
 
