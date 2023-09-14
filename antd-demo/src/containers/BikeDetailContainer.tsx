@@ -6,7 +6,7 @@ import { Bike } from '../components/bike/Bike'
 const { Title, Text } = Typography
 
 const BikeDetailContainer = () => {
-  const id = useParams<{ id?: string }>()
+  const { id } = useParams<{ id?: string }>()
   const selectedBike = useAppSelector(selectBikeById(Number(id))) //On met le find dans le reducer en creant un custom selector pour reuse le code plus facilement
   // Ne pas utiliser parseInt mais plutot un cast dans le type souhiaté ex : Number("1") = 1 et String(1) = "1"
   return (
