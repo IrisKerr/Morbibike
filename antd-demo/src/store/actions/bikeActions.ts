@@ -2,6 +2,7 @@
 import { Dispatch } from 'redux'
 import { addBike, editBike, deleteBike } from '../reducers/bikeSlice'
 import { initialBikes } from '../../data/initialData' // Importez les données initiales
+import { Velo } from '../../models/types'
 
 // Action pour ajouter un vélo
 export const loadInitialData = () => {
