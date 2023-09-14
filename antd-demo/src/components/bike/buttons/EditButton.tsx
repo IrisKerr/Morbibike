@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
-import EditBikeForm from '../../../forms/BikeCreateForm' // Utilisez le composant de formulaire que nous avons créé précédemment
+
 import { EditOutlined } from '@ant-design/icons'
+import Edit from '../../../forms/bike/Edit'
 
 export const EditButton = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -32,7 +33,7 @@ export const EditButton = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <EditBikeForm handleCancel={handleCancel} />
+        <Edit handleCancel={handleCancel} />
       </Modal>
     </div>
   )

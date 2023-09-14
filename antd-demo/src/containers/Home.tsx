@@ -1,15 +1,14 @@
 // src/routes/Home.tsx
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-
-// import { initialBikes } from "../data/initialData"
 import { Typography } from 'antd'
 import { Bike } from '../components/bike/Bike'
+import { useAppSelector } from '../store/hooks'
+
 const { Title, Paragraph } = Typography
 
 const Home: React.FC = () => {
-  const bikes = useSelector((state: RootState) => state.bikes)
+  const bikes = useAppSelector((state: RootState) => state.bikes.bikes)
   console.log('vélos du store', bikes)
 
   const paragraphStyle: React.CSSProperties = {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
-import CreateBikeForm from '../../../forms/BikeCreateForm'
+import Create from '../../../forms/bike/Create'
 
 export const AddCard = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -24,7 +24,7 @@ export const AddCard = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <CreateBikeForm handleCancel={handleCancel} />
+        <Create handleCancel={handleCancel} />
       </Modal>
     </div>
   )
