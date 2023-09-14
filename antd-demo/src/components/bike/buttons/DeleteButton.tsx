@@ -2,16 +2,34 @@ import React, { useState } from 'react'
 import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
 // import DeleteBikeForm from '../forms/BikeCreateForm'; // Utilisez le composant de formulaire que nous avons créé précédemment
 import { DeleteOutlined } from '@ant-design/icons'
+import { deleteBike } from '../../../store/reducers/bikeSlice'
+import { selectBikeById } from '../../../store/reducers/bikeSlice'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from '../../../store/hooks'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const DeleteButton = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const { id } = useParams<{ id?: string }>()
+  const bikeId = id ? Number(id) : undefined
 
   const handleShowCreateForm = () => {
     setIsModalVisible(true)
   }
 
   const handleCancel = () => {
-    setIsModalVisible(false)
+    false
+  }
+
+  const handleDelete = () => {
+    // Dispatchez l'action de suppression avec l'ID du vélo
+    dispatch(deleteBike(bikeId))
+    console.log('vélo supprimé')
+    setIsModalVisible(false) // Fermez la boîte de dialogue modale après la suppression
+    navigate('/')
   }
 
   return (
@@ -32,7 +50,7 @@ export const DeleteButton = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        {/* <DeleteBikeForm handleCancel={handleCancel}/> */}
+        <Button onClick={handleDelete}>Supprimer</Button>
       </Modal>
     </div>
   )
