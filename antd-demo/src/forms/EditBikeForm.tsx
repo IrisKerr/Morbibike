@@ -1,34 +1,31 @@
-import React from 'react';
-import { Form, Input, Button, Select } from 'antd';
-import { useDispatch } from 'react-redux';
+import React from 'react'
+import { Form, Input, Button, Select } from 'antd'
+import { useDispatch } from 'react-redux'
 // EditBike a créer
-// import { EditBike } from '../store/reducers/bikeSlice'; 
-const { Option } = Select;
+// import { EditBike } from '../store/reducers/bikeSlice';
+const { Option } = Select
 
 interface FormValues {
-    name: string;
-    model: string;
-    year: number;
-    bikeType: string;
-    color: string;
-  }
+  name: string
+  model: string
+  year: number
+  bikeType: string
+  color: string
+}
 
-  interface CreateBikeFormProps {
-    handleCancel: () => void;
-  }
+interface CreateBikeFormProps {
+  handleCancel: () => void
+}
 
 const EditBikeForm: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   //const [form] = Form.useForm();
 
   const onFinish = (values: FormValues) => {
-    console.log('Valeurs du formulaire :', values);
-   
-  };
+    console.log('Valeurs du formulaire :', values)
+  }
 
-  return (
-  <div>Form à ajouter</div>
-  );
-};
+  return <div>Form à ajouter</div>
+}
 
-export default EditBikeForm;
+export default EditBikeForm
