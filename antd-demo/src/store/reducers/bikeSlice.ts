@@ -31,9 +31,9 @@ const bikeSlice = createSlice({
     editBike: (state, action: PayloadAction<Velo>) => {
       state.bikes = state.bikes.map((bike) => {
         if (action.payload.id === bike.id) {
-          return bike
+          return action.payload
         }
-        return action.payload
+        return bike
       })
     },
     deleteBike: (state, action: PayloadAction<number>) => {
