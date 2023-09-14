@@ -26,13 +26,13 @@ export const DeleteButton = () => {
 
   const handleDelete = () => {
     // Dispatchez l'action de suppression avec l'ID du vélo
-    dispatch(deleteBike(bikeId))
+    dispatch(deleteBike(bikeId!)) // As the componenent is rendered when bikeId is not undefined we can safely assume it won't be undefined here
     console.log('vélo supprimé')
     setIsModalVisible(false) // Fermez la boîte de dialogue modale après la suppression
     navigate('/')
   }
 
-  return (
+  return bikeId ? (
     <div>
       <Button
         type="primary"
@@ -53,6 +53,8 @@ export const DeleteButton = () => {
         <Button onClick={handleDelete}>Supprimer</Button>
       </Modal>
     </div>
+  ) : (
+    <></>
   )
 }
 
