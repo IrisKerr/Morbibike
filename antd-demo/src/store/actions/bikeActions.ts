@@ -14,9 +14,9 @@ export const loadInitialData = () => {
 }
 
 // Action pour éditer un vélo
-export const editBikeAction = (id: number, updatedBike: Velo) => {
+export const editBikeAction = (updatedBike: Velo) => {
   return (dispatch: Dispatch) => {
-    dispatch(editBike({ id, updatedBike }))
+    dispatch(editBike(updatedBike))
   }
 }
 

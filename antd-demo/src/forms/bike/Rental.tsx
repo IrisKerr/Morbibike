@@ -16,7 +16,7 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
   const [startDate, setStartDate] = useState<Dayjs | null>(null)
   const [endDate, setEndDate] = useState<Dayjs | null>(null)
   // import du state qui contient les données de location
-  const rentals = useSelector((state: RootState) => state.rentals)
+  const rentals = useSelector((state: RootState) => state.rentals.rentals)
   console.log('rentals', rentals)
 
   const handleAddRental = () => {

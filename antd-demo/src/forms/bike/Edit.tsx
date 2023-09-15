@@ -7,6 +7,7 @@ import { editBike } from '../../store/reducers/bikeSlice'
 import { selectBikeById } from '../../store/reducers/bikeSlice'
 import { useAppSelector } from '../../store/hooks'
 import { useParams } from 'react-router-dom'
+import { Rent, Velo } from '../../models/types'
 
 const { Option } = Select
 
@@ -16,6 +17,7 @@ interface FormValues {
   year: number
   bikeType: string
   color: string
+  rents: Rent[]
 }
 
 interface CreateBikeFormProps {
@@ -32,9 +34,9 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   const onFinish = (values: FormValues) => {
     console.log('Valeurs du formulaire :', values)
 
-    const updatedBikeData = {
+    const updatedBikeData: Velo = {
       // Utilisez les valeurs du formulaire pour mettre à jour le vélo
-      id: selectedBike?.id,
+      id: selectedBike!.id,
       ...values, // Utilisez les valeurs du formulaire pour mettre à jour les autres champs du vélo
     }
 
@@ -60,6 +62,9 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
       initialValues={selectedBike}
     >
       <Form.Item name="id" hidden>
+        <Input />
+      </Form.Item>
+      <Form.Item name="rents" hidden>
         <Input />
       </Form.Item>
 
