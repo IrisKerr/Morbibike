@@ -4,7 +4,7 @@ import { Rent } from '../../models/types'
 
 // Action pour ajouter une location
 export const addRentalAction = (rentalData: Rent) => {
-  return (dispatch: Dispatch) => {
+  return (dispatch: Dispatch<any>) => {
     dispatch(addRental(rentalData))
   }
 }

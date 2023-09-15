@@ -4,6 +4,7 @@ import { RootState } from '../store/store'
 import { Typography } from 'antd'
 import { Bike } from '../components/bike/Bike'
 import { useAppSelector } from '../store/hooks'
+import RentCalendar from '../components/RentCalendar'
 
 const { Title, Paragraph } = Typography
 
@@ -48,6 +49,7 @@ const Home: React.FC = () => {
         Vous n&apos;avez pas trouvé votre bonheur ? Ajoutez votre propre vélo!
       </Title>
       <Bike.AddCard />
+      <RentCalendar />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { Dayjs } from 'dayjs'
+import dayjs, { Dayjs } from 'dayjs'
 
 // types.ts
 export interface Velo {
@@ -14,6 +14,6 @@ export interface Velo {
 export interface Rent {
   id: number
   velo: { id: number }
-  start_date: Dayjs
-  end_date: Dayjs
+  start_date: Date | Dayjs
+  end_date: Date | Dayjs
 }
