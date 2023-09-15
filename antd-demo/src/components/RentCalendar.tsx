@@ -2,12 +2,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import dayjs from 'dayjs'
 import { RootState } from '../store/store'
-// import { Rent } from '../models/types'
-import { Calendar } from 'antd'
-import { Typography } from 'antd'
 
+import dayjs from 'dayjs'
+import 'dayjs/locale/fr' // Import de la locale française
+
+// import { Rent } from '../models/types'
+import { Calendar, ConfigProvider, Typography } from 'antd'
 const { Title } = Typography
 
 // propriétés css du title
@@ -22,9 +23,6 @@ const RentCalendar: React.FC = () => {
   // accès au tableau de locations depuis le state Redux
   const rentals = useSelector((state: RootState) => state.rentals.rentals)
   console.log('locations en cours', rentals)
-
-  // récupère l'id du vélo depuis rentals
-  const bikeId = rentals.length > 0 ? rentals[0].velo.id : undefined
 
   /// Au clic sur une date, vérifie s'il y a une réservation de vélo
   const onSelect = (date: dayjs.Dayjs) => {
@@ -64,17 +62,21 @@ const RentCalendar: React.FC = () => {
     )
   }
 
+  dayjs.locale('fr') // configuration de la locale françasie
+
   return (
-    <div>
+    <>
       <Title level={4} style={titleStyle}>
         Locations en cours :
       </Title>
-      <Calendar
-        onPanelChange={onPanelChange}
-        dateCellRender={dateCellRender}
-        onSelect={onSelect}
-      />
-    </div>
+      <ConfigProvider locale={{ locale: dayjs.locale('fr') }}>
+        <Calendar
+          onPanelChange={onPanelChange}
+          dateCellRender={dateCellRender}
+          onSelect={onSelect}
+        />
+      </ConfigProvider>
+    </>
   )
 }
 

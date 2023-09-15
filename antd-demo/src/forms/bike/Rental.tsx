@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 
 import { DatePicker, Button } from 'antd'
 import { addRentalAction } from '../../store/actions/rentalActions'
+import { updateBikeRents } from '../../store/reducers/bikeSlice'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { Rent } from '../../models/types'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
@@ -21,8 +23,10 @@ const datePickerStyle: React.CSSProperties = {
 const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
   const [startDate, setStartDate] = useState<Dayjs | null>(null)
   const [endDate, setEndDate] = useState<Dayjs | null>(null)
+  // hook custom useDispatch
+  const dispatch = useAppDispatch()
   // import du state qui contient les données de location
-  const rentals = useSelector((state: RootState) => state.rentals?.rentals)
+  const rentals = useAppSelector((state) => state.rentals.rentals)
   console.log('rentals', rentals)
 
   // définir la locale française
@@ -59,8 +63,12 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
       if (!isOverlapping(rentalData, rentals)) {
         // Utilisez directement dispatch pour ajouter la location
         console.log(rentalData)
-        addRentalAction(rentalData)
+
+        // ajout des données de location dans le store sous Rent
+        dispatch(addRentalAction(rentalData))
         console.log('ajout effectué')
+        // ajout de la location dans le tableau rents de Velo
+        dispatch(updateBikeRents({ bikeId: bikeId, rent: rentalData }))
 
         setStartDate(null)
         setEndDate(null)
