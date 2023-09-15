@@ -6,6 +6,12 @@ import Rental from '../forms/bike/Rental'
 import { Bike } from '../components/bike/Bike'
 const { Title, Text } = Typography
 
+const titleStyle: React.CSSProperties = {
+  margin: '0.5rem auto',
+  padding: '1rem',
+  color: '#ff5733',
+}
+
 const BikeDetailContainer = () => {
   const { id } = useParams<{ id?: string }>()
   const bikeId = id ? Number(id) : undefined
@@ -15,9 +21,13 @@ const BikeDetailContainer = () => {
     // on utilise un ternaire qui test si selected bike existe (https://www.pierre-giraud.com/javascript-apprendre-coder-cours/operateur-ternaire/)
     selectedBike ? ( //Condition en ternaire true
       <Space direction="vertical">
-        <Title level={3}>Détails du vélo</Title>
+        <Title level={3} style={titleStyle}>
+          Détails du vélo
+        </Title>
         <Bike.DetailsCard bike={selectedBike} />
-        <Title level={3}>Je souhaite le louer</Title>
+        <Title level={3} style={titleStyle}>
+          Je souhaite le louer
+        </Title>
         <Rental bikeId={bikeId} />
       </Space>
     ) : (

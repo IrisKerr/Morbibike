@@ -16,7 +16,7 @@ const buttonContainerStyle: React.CSSProperties = {
 
 const cardStyle: React.CSSProperties = {
   width: '300px',
-  margin: '4rem auto',
+  margin: '0.5rem auto 2rem auto',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
 }
 

@@ -19,16 +19,21 @@ const headerStyle: React.CSSProperties = {
   backgroundColor: '#FDBF6F',
   fontSize: '1.5rem',
 }
+const linkStyle: React.CSSProperties = {
+  color: 'inherit',
+  textDecoration: 'none',
+}
 
 const contentStyle: React.CSSProperties = {
   textAlign: 'center',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  minHeight: 120,
+  minHeight: '86vh',
   lineHeight: '120px',
   color: '#EE651D',
   backgroundColor: '#fff',
+  padding: 0,
 }
 
 const footerStyle: React.CSSProperties = {
@@ -39,10 +44,16 @@ const footerStyle: React.CSSProperties = {
 
 const MainLayout: React.FC = ({}) => {
   return (
-    <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
+    <Space
+      direction="vertical"
+      style={{ width: '100%', padding: '0' }}
+      size={[0, 48]}
+    >
       <Layout>
         <Header style={headerStyle}>
-          <Link to={'/'}>Morbibike</Link>
+          <Link to={'/'} style={linkStyle}>
+            Morbibike
+          </Link>
         </Header>
         <Content style={contentStyle}>
           <Outlet />

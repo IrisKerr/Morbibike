@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Form, Input, Button, Select } from 'antd'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -31,6 +31,11 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   // const bikeId = id ? Number(id) : undefined
   const selectedBike = useAppSelector(selectBikeById(Number(id)))
 
+  useEffect(() => {
+    // Mettez à jour les champs du formulaire avec les nouvelles valeurs du state
+    form.setFieldsValue(selectedBike)
+  }, [selectedBike, form])
+
   const onFinish = (values: FormValues) => {
     console.log('Valeurs du formulaire :', values)
 
@@ -59,7 +64,7 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
       onFinish={onFinish}
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }}
-      initialValues={selectedBike}
+      // initialValues={selectedBike}
     >
       <Form.Item name="id" hidden>
         <Input />

@@ -8,12 +8,6 @@ interface BikeListProps {
   //   onEditClick: (bike: Velo) => void; // Callback pour gérer l'édition d'un vélo
 }
 
-const buttonStyle: React.CSSProperties = {
-  backgroundColor: '#FF5733',
-  borderColor: '#FF5733',
-  color: '#FFFFFF',
-}
-
 const cardStyle: React.CSSProperties = {
   width: '300px',
   margin: '16px',
@@ -25,10 +19,15 @@ export const ListCard: React.FC<BikeListProps> = ({ bikes }) => {
     <div>
       <Row gutter={16} justify="center">
         {bikes.map((bike) => (
-          <Col md={12} lg={8} key={bike.id}>
+          <Col
+            md={12}
+            lg={8}
+            key={bike.id}
+            style={{ display: 'flex', justifyContent: 'center' }}
+          >
             <Card key={bike.id} title={bike.name} style={cardStyle}>
               <Link to={`/bike/${bike.id}`}>
-                <Button type="primary" style={buttonStyle}>
+                <Button type="primary" className="ant-btn">
                   Voir détails
                 </Button>
               </Link>

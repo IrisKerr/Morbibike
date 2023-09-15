@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     fontSize: '16px',
     lineHeight: '1.5',
     maxWidth: '700px',
-    margin: '2rem auto',
+    margin: '1rem auto',
     padding: '1rem',
   }
 
@@ -30,14 +30,24 @@ const Home: React.FC = () => {
   }
 
   const titleStyle: React.CSSProperties = {
-    margin: '5rem 0 1.5rem 0',
+    margin: '0.5rem auto',
     padding: '1rem',
+    color: '#ff5733',
+  }
+
+  const addBikeStyle: React.CSSProperties = {
+    marginTop: '5rem',
+    backgroundColor: '#FDBF6F66',
+    padding: '2rem 0',
+    borderRadius: '1rem',
   }
 
   return (
     <div style={containerStyle}>
       {/* afficher seulement la liste des velos disponibles! */}
-      <Title level={3}>Nos vélos disponibles à la location</Title>
+      <Title level={3} style={titleStyle}>
+        Nos vélos disponibles à la location
+      </Title>
       <Paragraph style={paragraphStyle}>
         Jacques Pedalo est un homme passionné, et il n&apos;y a qu&apos;une
         chose qui puisse rivaliser avec son amour pour la Bretagne : ses vélos.
@@ -45,10 +55,13 @@ const Home: React.FC = () => {
         sa chère région natale, la Bretagne. Découvrez-les !
       </Paragraph>
       <Bike.ListCard bikes={bikes} />
-      <Title level={4} style={titleStyle}>
-        Vous n&apos;avez pas trouvé votre bonheur ? Ajoutez votre propre vélo!
-      </Title>
-      <Bike.AddCard />
+      <div style={addBikeStyle}>
+        <Title level={4} style={titleStyle}>
+          Vous n&apos;avez pas trouvé votre bonheur ? <br /> Ajoutez votre
+          propre vélo!
+        </Title>
+        <Bike.AddCard />
+      </div>
       <RentCalendar />
     </div>
   )

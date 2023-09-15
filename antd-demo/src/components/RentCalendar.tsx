@@ -16,6 +16,7 @@ const { Title } = Typography
 const titleStyle: React.CSSProperties = {
   margin: '5rem 0 1.5rem 0',
   padding: '1rem',
+  color: '#ff5733',
 }
 
 const RentCalendar: React.FC = () => {
@@ -94,8 +95,8 @@ const RentCalendar: React.FC = () => {
 
   return (
     <>
-      <Title level={4} style={titleStyle}>
-        Locations en cours :
+      <Title level={3} style={titleStyle}>
+        Locations en cours
       </Title>
       <ConfigProvider locale={{ locale: dayjs.locale('fr') }}>
         <Calendar
