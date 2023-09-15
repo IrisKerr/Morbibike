@@ -42,7 +42,7 @@ const Home: React.FC = () => {
         Jacques Pedalo est un homme passionné, et il n&apos;y a qu&apos;une
         chose qui puisse rivaliser avec son amour pour la Bretagne : ses vélos.
         Il les chérit tellement qu&apos;il les a baptisés en l&apos;honneur de
-        sa chère région natale, la Bretagne.
+        sa chère région natale, la Bretagne. Découvrez-les !
       </Paragraph>
       <Bike.ListCard bikes={bikes} />
       <Title level={4} style={titleStyle}>

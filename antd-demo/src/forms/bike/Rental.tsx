@@ -1,5 +1,6 @@
 // RentalForm.tsx
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { DatePicker, Button } from 'antd'
 import { addRentalAction } from '../../store/actions/rentalActions'
@@ -25,6 +26,7 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
   const [endDate, setEndDate] = useState<Dayjs | null>(null)
   // hook custom useDispatch
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   // import du state qui contient les données de location
   const rentals = useAppSelector((state) => state.rentals.rentals)
   console.log('rentals', rentals)
@@ -40,6 +42,15 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
 
       console.log(formattedStartDate)
       console.log(formattedEndDate)
+
+      // Vérif si la date de début est antérieure à aujourd'hui
+      const currentDate: Dayjs = dayjs()
+      if (formattedStartDate.isBefore(currentDate, 'day')) {
+        message.error(
+          "La date de début de location ne peut pas être antérieure à aujourd'hui."
+        )
+        return
+      }
 
       // Vérifiez si la date de fin est antérieure à la date de début
       if (formattedEndDate.isBefore(formattedStartDate)) {
@@ -72,8 +83,12 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
 
         setStartDate(null)
         setEndDate(null)
+        navigate('/')
       } else {
-        console.error('Les dates de location se chevauchent.')
+        console.log('Les dates de location se chevauchent.')
+        message.error('Oups.. Le vélo est déjà loué sur ces dates...')
+        setStartDate(null)
+        setEndDate(null)
       }
     }
   }

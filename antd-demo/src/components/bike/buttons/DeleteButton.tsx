@@ -21,7 +21,7 @@ export const DeleteButton = () => {
   }
 
   const handleCancel = () => {
-    false
+    setIsModalVisible(false)
   }
 
   const handleDelete = () => {
