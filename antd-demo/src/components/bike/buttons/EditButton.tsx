@@ -3,9 +3,15 @@ import { Button, Modal } from 'antd' // Importez le composant Modal d'Ant Design
 
 import { EditOutlined } from '@ant-design/icons'
 import Edit from '../../../forms/bike/Edit'
+import { useAppDispatch } from '../../../store/hooks'
+import { open } from '../../../store/reducers/superModalSlice'
+import Action from '../action/Action'
+import { SuperModalType } from '../../../modules/super-modal/SuperModalTypes'
 
 export const EditButton = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const dispatch = useAppDispatch()
 
   const handleShowCreateForm = () => {
     setIsModalVisible(true)
@@ -16,7 +22,11 @@ export const EditButton = () => {
   }
 
   return (
-    <div>
+    <>
+      <Action type="update" entity={SuperModalType.velo} />
+      <Action type="create" entity={SuperModalType.velo} />
+      <Action type="create" entity={SuperModalType.rent} />
+
       <Button
         type="primary"
         className="ant-btn"
@@ -35,7 +45,7 @@ export const EditButton = () => {
       >
         <Edit handleCancel={handleCancel} />
       </Modal>
-    </div>
+    </>
   )
 }
 

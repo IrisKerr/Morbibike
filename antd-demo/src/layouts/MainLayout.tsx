@@ -7,6 +7,9 @@ import React, { ReactNode } from 'react'
 // imports de AntDesign
 import { Layout, Space } from 'antd'
 import { Link, Outlet } from 'react-router-dom'
+import SuperModal from '../modules/super-modal/SuperModal'
+import Action from '../components/bike/action/Action'
+import { SuperModalType } from '../modules/super-modal/SuperModalTypes'
 const { Header, Footer, Content } = Layout
 
 const headerStyle: React.CSSProperties = {
@@ -54,6 +57,7 @@ const MainLayout: React.FC = ({}) => {
           <Link to={'/'} style={linkStyle}>
             Morbibike
           </Link>
+          <Action type="create" entity={SuperModalType.velo} />
         </Header>
         <Content style={contentStyle}>
           <Outlet />
@@ -61,6 +65,7 @@ const MainLayout: React.FC = ({}) => {
         <Footer style={footerStyle}>
           © 2023 Morbibike • Tous droits réservés
         </Footer>
+        <SuperModal />
       </Layout>
     </Space>
   )
