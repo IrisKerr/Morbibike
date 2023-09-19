@@ -84,7 +84,6 @@ const RentCalendar: React.FC = () => {
             className="rental-date"
             color={colors[index % colors.length]}
           >
-            Vélo loué :{' '}
             {bikes.find((bike) => bike.id === rentalDate.velo.id)?.name}
           </Tag>
         ))}

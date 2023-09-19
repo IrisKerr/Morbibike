@@ -10,6 +10,7 @@ const titles = {
   [SuperModalType.velo]: {
     ['create' as ActionTypes]: 'Ajouter un vélo',
     ['update' as ActionTypes]: 'Modifier le vélo',
+    ['delete' as ActionTypes]: 'Supprimer le vélo',
   },
   [SuperModalType.rent]: {
     ['create' as ActionTypes]: 'Nouvelle location',
