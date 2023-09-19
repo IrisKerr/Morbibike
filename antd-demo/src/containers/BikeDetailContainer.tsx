@@ -4,6 +4,7 @@ import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
 import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
+import BikeCalendar from '../components/BikeCalendar'
 const { Title, Text } = Typography
 
 const titleStyle: React.CSSProperties = {
@@ -25,10 +26,7 @@ const BikeDetailContainer = () => {
           Détails du vélo
         </Title>
         <Bike.DetailsCard bike={selectedBike} />
-        {/* <Title level={3} style={titleStyle}>
-          Je souhaite le louer
-        </Title>
-        <Rental bikeId={bikeId} /> */}
+        <BikeCalendar />
       </Space>
     ) : (
       //Condition en ternaire false
