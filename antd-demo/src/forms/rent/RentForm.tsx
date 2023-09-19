@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../store/hooks'
-// import Create from './Create'
+import Create from './Create'
 // import Update from './Edit'
 
 export const RentForm = () => {
@@ -7,8 +7,8 @@ export const RentForm = () => {
 
   return (
     <>
-      {/* {type === 'create' && <Create handleCancel={() => {}} />}
-      {type === 'update' && <Update handleCancel={() => {}} />} */}
+      {type === 'create' && <Create handleCancel={() => {}} />}
+      {/* {type === 'update' && <Update handleCancel={() => {}} />} */}
     </>
   )
 }

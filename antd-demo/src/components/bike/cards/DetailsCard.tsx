@@ -32,7 +32,7 @@ export const DetailsCard: React.FC<BikeDetailCardProps> = ({ bike }) => {
         <p>Couleur: {bike.color}</p>
         <div style={buttonContainerStyle}>
           <Action type="update" entity={SuperModalType.velo} />
-          <Action type="create" entity={SuperModalType.client} />
+          <Action type="delete" entity={SuperModalType.velo} />
         </div>
       </Card>
     </>

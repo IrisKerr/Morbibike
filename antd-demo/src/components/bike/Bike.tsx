@@ -3,7 +3,7 @@ import { AddCard, AddCardType } from './cards/AddCard'
 import { DetailsCard, DetailsCardType } from './cards/DetailsCard'
 import { ListCard, ListCardType } from './cards/ListCard'
 import { DeleteButton, DeleteButtonType } from './buttons/DeleteButton'
-import { EditButton, EditButtonType } from './buttons/EditButton'
+import { EditButton, EditButtonType } from './buttons/CreateEditButton'
 
 export const Bike: FC &
   AddCardType &

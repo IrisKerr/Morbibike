@@ -30,6 +30,7 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   const { id } = useParams<{ id?: string }>()
   // const bikeId = id ? Number(id) : undefined
   const selectedBike = useAppSelector(selectBikeById(Number(id)))
+  console.log(selectedBike)
 
   useEffect(() => {
     // Mettez à jour les champs du formulaire avec les nouvelles valeurs du state

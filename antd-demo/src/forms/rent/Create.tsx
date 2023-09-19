@@ -17,13 +17,14 @@ const { RangePicker } = DatePicker
 
 interface RentalFormProps {
   bikeId?: number
+  handleCancel: () => void
 }
 
 const datePickerStyle: React.CSSProperties = {
   marginRight: '0.5rem',
 }
 
-const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
+const Rental: React.FC<RentalFormProps> = ({ bikeId, handleCancel }) => {
   const [dateRange, setDateRange] = useState<[Dayjs | null, Dayjs | null]>([
     null,
     null,

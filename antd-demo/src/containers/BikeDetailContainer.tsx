@@ -25,10 +25,10 @@ const BikeDetailContainer = () => {
           Détails du vélo
         </Title>
         <Bike.DetailsCard bike={selectedBike} />
-        <Title level={3} style={titleStyle}>
+        {/* <Title level={3} style={titleStyle}>
           Je souhaite le louer
         </Title>
-        <Rental bikeId={bikeId} />
+        <Rental bikeId={bikeId} /> */}
       </Space>
     ) : (
       //Condition en ternaire false

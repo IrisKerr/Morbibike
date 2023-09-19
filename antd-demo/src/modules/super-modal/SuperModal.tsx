@@ -2,9 +2,9 @@ import { Modal } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { close } from '../../store/reducers/superModalSlice'
 import { SuperModalType, getTitle } from './SuperModalTypes'
-import Edit from '../../forms/bike/Edit'
-import Create from '../../forms/bike/Create'
+
 import { BikeForm } from '../../forms/bike/BikeForm'
+import { RentForm } from '../../forms/rent/RentForm'
 
 export const SuperModal = () => {
   const { isOpen, type, entity } = useAppSelector((state) => state.superModal)
@@ -16,7 +16,7 @@ export const SuperModal = () => {
 
   const forms = {
     [SuperModalType.velo]: <BikeForm />,
-    [SuperModalType.rent]: <></>,
+    [SuperModalType.rent]: <RentForm />,
     [SuperModalType.client]: <>Formulaire des client</>,
   }
 
