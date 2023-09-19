@@ -8,12 +8,12 @@ export type ActionTypes = 'create' | 'update' | 'view' | 'delete'
 
 const titles = {
   [SuperModalType.velo]: {
-    ['create' as ActionTypes]: 'Pealos creator',
-    ['update' as ActionTypes]: 'Edit velo',
+    ['create' as ActionTypes]: 'Ajouter un vélo',
+    ['update' as ActionTypes]: 'Modifier le vélo',
   },
   [SuperModalType.rent]: {
-    ['create' as ActionTypes]: 'Create new rent',
-    ['update' as ActionTypes]: 'Edit rent',
+    ['create' as ActionTypes]: 'Nouvelle location',
+    ['update' as ActionTypes]: 'Modifier la location',
   },
   [SuperModalType.client]: {
     ['create' as ActionTypes]: 'Create new client',

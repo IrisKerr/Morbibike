@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { Space, Typography } from 'antd'
 import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
-import Rental from '../forms/bike/Rental'
+import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
 const { Title, Text } = Typography
 
