@@ -13,6 +13,8 @@ import { isOverlapping } from '../../utils/rentalUtils'
 import { message } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
 
+const { RangePicker } = DatePicker
+
 interface RentalFormProps {
   bikeId?: number
 }
@@ -22,8 +24,11 @@ const datePickerStyle: React.CSSProperties = {
 }
 
 const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
-  const [startDate, setStartDate] = useState<Dayjs | null>(null)
-  const [endDate, setEndDate] = useState<Dayjs | null>(null)
+  const [dateRange, setDateRange] = useState<[Dayjs | null, Dayjs | null]>([
+    null,
+    null,
+  ])
+
   // hook custom useDispatch
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -35,10 +40,9 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
   dayjs.locale('fr')
 
   const handleAddRental = () => {
-    if (startDate && endDate && typeof bikeId === 'number') {
-      // Formatage des dates au format "YYYY-MM-DD"
-      const formattedStartDate: Dayjs = dayjs(startDate)
-      const formattedEndDate: Dayjs = dayjs(endDate)
+    if (dateRange[0] && dateRange[1] && typeof bikeId === 'number') {
+      const formattedStartDate: Dayjs = dateRange[0]!
+      const formattedEndDate: Dayjs = dateRange[1]!
 
       console.log(formattedStartDate)
       console.log(formattedEndDate)
@@ -81,30 +85,26 @@ const Rental: React.FC<RentalFormProps> = ({ bikeId }) => {
         // ajout de la location dans le tableau rents de Velo
         dispatch(updateBikeRents({ bikeId: bikeId, rent: rentalData }))
 
-        setStartDate(null)
-        setEndDate(null)
+        setDateRange([null, null])
         navigate('/')
       } else {
         console.log('Les dates de location se chevauchent.')
         message.error('Oups.. Le vélo est déjà loué sur ces dates...')
-        setStartDate(null)
-        setEndDate(null)
+        setDateRange([null, null])
       }
     }
   }
 
   return (
     <>
-      <DatePicker
-        value={startDate}
-        onChange={(date) => setStartDate(date ? dayjs(date) : null)}
-        placeholder="Date de début"
-        style={datePickerStyle}
-      />
-      <DatePicker
-        value={endDate}
-        onChange={(date) => setEndDate(date ? dayjs(date) : null)}
-        placeholder="Date de fin"
+      <RangePicker
+        value={dateRange}
+        onChange={(dates) => {
+          if (Array.isArray(dates) && dates.length === 2) {
+            setDateRange(dates)
+          }
+        }}
+        placeholder={['Date de début', 'Date de fin']}
         style={datePickerStyle}
       />
       <Button type="primary" onClick={handleAddRental}>
