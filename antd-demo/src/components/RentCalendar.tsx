@@ -68,24 +68,27 @@ const RentCalendar: React.FC = () => {
   // render la donnée dans la cellule du calendrier
   const dateCellRender = (date: dayjs.Dayjs) => {
     // vérif si la date est bien une date de location conforme
-    const isRentalDate = rentals.find(
+    const rentalDates = rentals.filter(
       (rental) =>
         dayjs(rental.start_date).isBefore(date) &&
         dayjs(rental.end_date).isAfter(date)
     )
 
-    // attribution de la couleur
-    const color = isRentalDate
-      ? colors[rentals.indexOf(isRentalDate) % colors.length]
-      : ''
+    console.log('rentalDates', rentalDates)
 
-    return isRentalDate ? (
-      <Tag className="rental-date" color={color}>
-        Vélo loué :{' '}
-        {isRentalDate.velo
-          ? bikes.find((bike) => bike.id === isRentalDate.velo.id)?.name
-          : ''}
-      </Tag>
+    return rentalDates ? (
+      <>
+        {rentalDates.map((rentalDate, index) => (
+          <Tag
+            key={rentalDate.velo.id} // Assurez-vous d'utiliser une clé unique pour chaque tag
+            className="rental-date"
+            color={colors[index % colors.length]}
+          >
+            Vélo loué :{' '}
+            {bikes.find((bike) => bike.id === rentalDate.velo.id)?.name}
+          </Tag>
+        ))}
+      </>
     ) : (
       date.format('D')
     )

@@ -12,6 +12,7 @@ interface BikeDetailCardProps {
 
 const buttonContainerStyle: React.CSSProperties = {
   display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   gap: '0.5rem',
 }
@@ -33,6 +34,7 @@ export const DetailsCard: React.FC<BikeDetailCardProps> = ({ bike }) => {
         <div style={buttonContainerStyle}>
           <Action type="update" entity={SuperModalType.velo} />
           <Action type="delete" entity={SuperModalType.velo} />
+          <Action type="create" entity={SuperModalType.rent} />
         </div>
       </Card>
     </>
