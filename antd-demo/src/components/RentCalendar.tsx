@@ -19,6 +19,11 @@ const titleStyle: React.CSSProperties = {
   color: '#ff5733',
 }
 
+const calendarStyle: React.CSSProperties = {
+  maxWidth: '1000px',
+  margin: 'auto',
+}
+
 const RentCalendar: React.FC = () => {
   const navigate = useNavigate()
 
@@ -53,17 +58,7 @@ const RentCalendar: React.FC = () => {
   }
 
   // couleurs des tags
-  const colors = [
-    'magenta',
-    'blue',
-    'green',
-    'red',
-    'orange',
-    'purple',
-    'cyan',
-    'gold',
-    'lime',
-  ]
+  const colors = ['#5CC1B9', '#1BA29B', '#00544E', '#2DA4A0']
 
   // render la donnée dans la cellule du calendrier
   const dateCellRender = (date: dayjs.Dayjs) => {
@@ -105,6 +100,7 @@ const RentCalendar: React.FC = () => {
           onPanelChange={onPanelChange}
           dateCellRender={dateCellRender}
           onSelect={onSelect}
+          style={calendarStyle}
         />
       </ConfigProvider>
     </>

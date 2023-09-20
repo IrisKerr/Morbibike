@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { Space, Typography } from 'antd'
+import { Row, Col } from 'antd'
 import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
 import Rental from '../forms/rent/Create'
@@ -25,8 +26,14 @@ const BikeDetailContainer = () => {
         <Title level={3} style={titleStyle}>
           Détails du vélo
         </Title>
-        <Bike.DetailsCard bike={selectedBike} />
-        <BikeCalendar />
+        <Row gutter={[32, 16]}>
+          <Col md={{ span: 12 }} lg={{ span: 12 }} style={{ margin: 'auto' }}>
+            <Bike.DetailsCard bike={selectedBike} />
+          </Col>
+          <Col md={{ span: 12 }} lg={{ span: 12 }} style={{ margin: 'auto' }}>
+            <BikeCalendar bikeId={bikeId} />
+          </Col>
+        </Row>
       </Space>
     ) : (
       //Condition en ternaire false

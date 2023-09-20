@@ -1,6 +1,6 @@
 // RentalForm.tsx
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { DatePicker, Button } from 'antd'
 import { addRentalAction } from '../../store/actions/rentalActions'
@@ -32,7 +32,6 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
 
   // hook custom useDispatch
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
 
   const { id } = useParams<{ id?: string }>()
   console.log('id du vélo via url', id)
@@ -96,7 +95,6 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
 
           setDateRange([null, null])
           handleCancel()
-          navigate('/')
         } else {
           console.log('Les dates de location se chevauchent.')
           message.error('Oups.. Le vélo est déjà loué sur ces dates...')
