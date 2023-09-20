@@ -12,16 +12,12 @@ import 'dayjs/locale/fr' // Import de la locale française
 import { Calendar, ConfigProvider, Typography } from 'antd'
 const { Title } = Typography
 
-// propriétés css du title
-const titleStyle: React.CSSProperties = {
-  margin: '5rem 0 1.5rem 0',
-  padding: '1rem',
-  color: '#ff5733',
+const calendarStyle: React.CSSProperties = {
+  maxWidth: '600px',
 }
 
-const RentCalendar: React.FC = () => {
+const BikeCalendar: React.FC = () => {
   const navigate = useNavigate()
-
   // accès au tableau de locations depuis le state Redux
   const rentals = useSelector((state: RootState) => state.rentals.rentals)
   console.log('locations en cours', rentals)
@@ -97,18 +93,16 @@ const RentCalendar: React.FC = () => {
 
   return (
     <>
-      <Title level={3} style={titleStyle}>
-        Locations en cours
-      </Title>
       <ConfigProvider locale={{ locale: dayjs.locale('fr') }}>
         <Calendar
           onPanelChange={onPanelChange}
           dateCellRender={dateCellRender}
           onSelect={onSelect}
+          style={calendarStyle}
         />
       </ConfigProvider>
     </>
   )
 }
 
-export default RentCalendar
+export default BikeCalendar
