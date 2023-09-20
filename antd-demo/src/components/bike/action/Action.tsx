@@ -38,6 +38,7 @@ export const Action = ({ type, entity, text }: Props) => {
         type="primary"
         onClick={() => dispatch(setEntity({ type: type, entity: entity }))}
         icon={icon}
+        className="ant-btn"
       >
         {/* {type} {entity} */}
         {text ? text : buttonText}

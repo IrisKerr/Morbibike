@@ -19,12 +19,20 @@ const headerStyle: React.CSSProperties = {
   paddingInline: 50,
   lineHeight: '64px',
   fontWeight: 800,
-  backgroundColor: '#FDBF6F',
+  backgroundColor: '#fff',
   fontSize: '1.5rem',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  position: 'sticky',
+  top: 0,
+  zIndex: 100,
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
 }
-const linkStyle: React.CSSProperties = {
-  color: 'inherit',
-  textDecoration: 'none',
+const companyTitleStyle: React.CSSProperties = {
+  color: '#ff9933',
+  fontSize: '1.2rem',
+  fontWeight: 'bold',
 }
 
 const contentStyle: React.CSSProperties = {
@@ -36,11 +44,11 @@ const contentStyle: React.CSSProperties = {
   lineHeight: '120px',
   color: '#EE651D',
   backgroundColor: '#fff',
-  padding: 0,
 }
 
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
+  fontSize: '0.8rem',
   color: '#EE651D',
   backgroundColor: '#FDBF6F',
 }
@@ -54,9 +62,10 @@ const MainLayout: React.FC = ({}) => {
     >
       <Layout>
         <Header style={headerStyle}>
-          <Link to={'/'} style={linkStyle}>
-            Morbibike
+          <Link to={'/'}>
+            <span style={companyTitleStyle}>Morbibike</span>
           </Link>
+
           <Action type="create" entity={SuperModalType.velo} />
         </Header>
         <Content style={contentStyle}>

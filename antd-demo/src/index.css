@@ -12,3 +12,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* override main-layout */
+
+.ant-layout-content > div:first-child {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Home */
+.custom-anchor-link {
+  font-size: 1rem;
+  padding: 0.2rem;
+}

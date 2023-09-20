@@ -5,6 +5,7 @@ import AppRoutes from './routes/routes'
 import MainLayout from './layouts/MainLayout'
 // imports styles CSS
 import './App.css'
+import './index.css'
 import './custom-theme.less'
 import { store } from './store/store'
 
