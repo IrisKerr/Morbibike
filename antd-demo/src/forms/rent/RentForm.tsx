@@ -1,5 +1,6 @@
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import Create from './Create'
+import Update from './Edit'
 import { close } from '../../store/reducers/superModalSlice'
 
 export const RentForm = () => {
@@ -15,7 +16,7 @@ export const RentForm = () => {
   return (
     <>
       {type === 'create' && <Create handleCancel={handleCancel} />}
-      {/* {type === 'update' && <Update handleCancel={() => {}} />} */}
+      {type === 'update' && <Update handleCancel={handleCancel} />}
     </>
   )
 }

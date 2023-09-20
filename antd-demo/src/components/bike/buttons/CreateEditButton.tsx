@@ -12,14 +12,13 @@ import {
 } from '../../../modules/super-modal/SuperModalTypes'
 
 export const EditButton = () => {
-  // const icon = actionType === 'create' ? <PlusOutlined /> : <EditOutlined />;
-
   return (
     <>
       <Action type="update" entity={SuperModalType.velo} />
       <Action type="create" entity={SuperModalType.velo} />
       <Action type="delete" entity={SuperModalType.velo} />
       <Action type="create" entity={SuperModalType.rent} />
+      {/* dois-je ici passer le rentalId en props pour l'action update de rent ? */}
       <Action type="update" entity={SuperModalType.rent} />
     </>
   )

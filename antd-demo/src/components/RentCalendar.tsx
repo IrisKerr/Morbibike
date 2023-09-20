@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RootState } from '../store/store'
 import { Tag } from 'antd'
+import Action from '../components/bike/action/Action'
+import { SuperModalType } from '../modules/super-modal/SuperModalTypes'
 
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr' // Import de la locale française
@@ -45,7 +47,7 @@ const RentCalendar: React.FC = () => {
 
     if (rentalForDate) {
       // Redirige vers la page de détail du vélo en utilisant l'ID du vélo associé à la réservation
-      navigate(`/bike/${rentalForDate.velo.id}`)
+      // navigate(`/bike/${rentalForDate.velo.id}`)
     } else {
       console.error('Aucune réservation de vélo pour cette date.')
     }
@@ -58,7 +60,7 @@ const RentCalendar: React.FC = () => {
   }
 
   // couleurs des tags
-  const colors = ['#5CC1B9', '#1BA29B', '#00544E', '#2DA4A0']
+  // const colors = ['#5CC1B9', '#1BA29B', '#00544E', '#2DA4A0']
 
   // render la donnée dans la cellule du calendrier
   const dateCellRender = (date: dayjs.Dayjs) => {
@@ -73,14 +75,16 @@ const RentCalendar: React.FC = () => {
 
     return rentalDates ? (
       <>
-        {rentalDates.map((rentalDate, index) => (
-          <Tag
-            key={rentalDate.velo.id} // Assurez-vous d'utiliser une clé unique pour chaque tag
-            className="rental-date"
-            color={colors[index % colors.length]}
-          >
-            {bikes.find((bike) => bike.id === rentalDate.velo.id)?.name}
-          </Tag>
+        {rentalDates.map((rentalDate) => (
+          <div key={rentalDate.id}>
+            <Action
+              type="update"
+              entity={SuperModalType.rent}
+              text={bikes.find((bike) => bike.id === rentalDate.velo.id)?.name}
+              // ici je voudrais faire passer en props l'id de location pour le faire passer à Edit.tsx (formulaire de modif de location depuis la modale)
+              rentalId={rentalDate.id}
+            />
+          </div>
         ))}
       </>
     ) : (

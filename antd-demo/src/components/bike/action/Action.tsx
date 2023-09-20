@@ -21,9 +21,12 @@ const iconMap: Record<ActionTypes, React.ReactNode> = {
 interface Props {
   type: ActionTypes
   entity: SuperModalType
+  style?: object
+  text?: string
+  rentalId?: number
 }
 
-export const Action = ({ type, entity }: Props) => {
+export const Action = ({ type, entity, text }: Props) => {
   const dispatch = useAppDispatch()
   const buttonText = getTitle(type, entity)
   // recup de l'icone à partir de l'objet IconMap
@@ -33,12 +36,11 @@ export const Action = ({ type, entity }: Props) => {
     <>
       <Button
         type="primary"
-        className="ant-btn"
         onClick={() => dispatch(setEntity({ type: type, entity: entity }))}
         icon={icon}
       >
         {/* {type} {entity} */}
-        {buttonText}
+        {text ? text : buttonText}
       </Button>
     </>
   )
