@@ -7,14 +7,13 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/fr' // Import de la locale française
 
 // import { Rent } from '../models/types'
-import { Calendar, theme, ConfigProvider, Typography } from 'antd'
-const { Title } = Typography
+import { Calendar, theme, ConfigProvider } from 'antd'
 
 interface BikeCalendarProps {
   bikeId: number | undefined
 }
 
-const BikeCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
+export const ItemCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
   const { token } = theme.useToken()
 
   const wrapperStyle: React.CSSProperties = {
@@ -78,4 +77,4 @@ const BikeCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
   )
 }
 
-export default BikeCalendar
+export type ItemCalendarType = { ItemCalendar: typeof ItemCalendar }

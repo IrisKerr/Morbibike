@@ -5,7 +5,7 @@ import { Typography, Button } from 'antd'
 import { Bike } from '../components/bike/Bike'
 import { useAppSelector } from '../store/hooks'
 import BikeAddContainer from './BikeAddContainer'
-import RentCalendar from '../components/RentCalendar'
+import { Rent } from '../components/rent/Rent'
 import Image from '../../src/assets/morbibike.png'
 import { Anchor } from 'antd'
 
@@ -103,7 +103,7 @@ const Home: React.FC = () => {
       </Paragraph>
       <Bike.ListCard bikes={bikes} />
       <BikeAddContainer />
-      <RentCalendar />
+      <Rent.OverviewCalendar />
     </div>
   )
 }

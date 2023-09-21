@@ -5,7 +5,7 @@ import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
 import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
-import BikeCalendar from '../components/bike/calendar/Calendar'
+
 const { Title, Text } = Typography
 
 const titleStyle: React.CSSProperties = {
@@ -35,7 +35,7 @@ const BikeDetailContainer = () => {
             <Bike.DetailsCard bike={selectedBike} />
           </Col>
           <Col md={{ span: 12 }} lg={{ span: 6 }}>
-            <BikeCalendar bikeId={bikeId} />
+            <Bike.ItemCalendar bikeId={bikeId} />
           </Col>
         </Row>
       </Space>

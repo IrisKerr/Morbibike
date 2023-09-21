@@ -2,10 +2,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { RootState } from '../store/store'
+import { RootState } from '../../../store/store'
 import { Tag } from 'antd'
-import Action from '../components/bike/action/Action'
-import { SuperModalType } from '../modules/super-modal/SuperModalTypes'
+import Action from '../../bike/action/Action'
+import { SuperModalType } from '../../../modules/super-modal/SuperModalTypes'
 
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr' // Import de la locale française
@@ -26,7 +26,7 @@ const calendarStyle: React.CSSProperties = {
   margin: 'auto',
 }
 
-const RentCalendar: React.FC = () => {
+export const OverviewCalendar: React.FC = () => {
   const navigate = useNavigate()
 
   // accès au tableau de locations depuis le state Redux
@@ -111,4 +111,4 @@ const RentCalendar: React.FC = () => {
   )
 }
 
-export default RentCalendar
+export type OverviewCalendarType = { OverviewCalendar: typeof OverviewCalendar }
