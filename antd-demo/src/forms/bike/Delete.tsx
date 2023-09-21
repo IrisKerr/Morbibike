@@ -24,7 +24,9 @@ const Delete: React.FC<DeleteBikeProps> = ({ handleCancel }) => {
 
   return bikeId ? (
     <>
-      <Button onClick={handleDelete}>Supprimer</Button>
+      <Button onClick={handleDelete} style={{ marginRight: '1rem' }}>
+        Supprimer
+      </Button>
       <Button onClick={handleCancel}>Annuler</Button>
     </>
   ) : (

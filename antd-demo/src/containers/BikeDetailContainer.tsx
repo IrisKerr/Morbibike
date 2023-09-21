@@ -1,17 +1,21 @@
 import { useParams } from 'react-router-dom'
-import { Space, Typography } from 'antd'
+import { Space, Typography, Result } from 'antd'
 import { Row, Col } from 'antd'
 import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
 import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
-import BikeCalendar from '../components/BikeCalendar'
+import BikeCalendar from '../components/bike/calendar/Calendar'
 const { Title, Text } = Typography
 
 const titleStyle: React.CSSProperties = {
-  margin: '0.5rem auto',
+  margin: '5rem auto 1rem',
   padding: '1rem',
-  color: '#ff5733',
+  color: '#ff9933',
+}
+
+const warningStyle: React.CSSProperties = {
+  marginTop: '10rem',
 }
 
 const BikeDetailContainer = () => {
@@ -24,20 +28,25 @@ const BikeDetailContainer = () => {
     selectedBike ? ( //Condition en ternaire true
       <Space direction="vertical">
         <Title level={3} style={titleStyle}>
-          Détails du vélo
+          Détails du vélo et calendrier de location
         </Title>
         <Row gutter={[32, 16]}>
-          <Col md={{ span: 12 }} lg={{ span: 12 }} style={{ margin: 'auto' }}>
+          <Col md={{ span: 12 }} lg={{ span: 18 }}>
             <Bike.DetailsCard bike={selectedBike} />
           </Col>
-          <Col md={{ span: 12 }} lg={{ span: 12 }} style={{ margin: 'auto' }}>
+          <Col md={{ span: 12 }} lg={{ span: 6 }}>
             <BikeCalendar bikeId={bikeId} />
           </Col>
         </Row>
       </Space>
     ) : (
       //Condition en ternaire false
-      <Text>Vélo ou id non spécifié</Text> // possiblement utiliser le composant ant design 'result' en type error
+      <Result
+        status="warning"
+        title="Votre vélo n'a pas été trouvé ou n'existe pas.."
+        style={warningStyle}
+      />
+      // possiblement utiliser le composant ant design 'result' en type error
     )
   )
 }

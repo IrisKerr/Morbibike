@@ -1,7 +1,7 @@
 // RentCalendar.tsx
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { RootState } from '../store/store'
+import { RootState } from '../../../store/store'
 
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr' // Import de la locale française
@@ -21,6 +21,10 @@ const BikeCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
     width: 300,
     border: `1px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
+  }
+
+  const calendarStyle: React.CSSProperties = {
+    minWidth: '320px',
   }
 
   // accès au tableau de locations depuis le state Redux
@@ -67,6 +71,7 @@ const BikeCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
           fullscreen={false}
           onPanelChange={onPanelChange}
           dateCellRender={dateCellRender}
+          style={calendarStyle}
         />
       </ConfigProvider>
     </div>

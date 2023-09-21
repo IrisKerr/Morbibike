@@ -23,7 +23,16 @@ code {
 /* Home */
 .custom-anchor-link {
   font-size: 1rem;
-  padding: 0.2rem;
+  padding: 0.8rem;
+  margin-top: 2rem;
+  color: white !important;
+  background-color: #ff9933;
+  font-size: 1rem;
+  height: 50px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
 }
 
 /* Styles pour les boutons Ant Design */
@@ -31,6 +40,7 @@ code {
   background-color: #ff9933 !important;
   border-color: #ff9933 !important;
   color: #ffffff;
+  min-width: 160px;
 }
 
 .ant-btn:hover {
@@ -57,4 +67,11 @@ code {
 
 .ant-col {
   padding: 0 !important;
+}
+
+div .ant-result {
+  min-height: 83vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

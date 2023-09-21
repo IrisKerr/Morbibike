@@ -1,7 +1,7 @@
 // src/routes/Home.tsx
 import React from 'react'
 import { RootState } from '../store/store'
-import { Typography } from 'antd'
+import { Typography, Button } from 'antd'
 import { Bike } from '../components/bike/Bike'
 import { useAppSelector } from '../store/hooks'
 import BikeAddContainer from './BikeAddContainer'
@@ -68,28 +68,11 @@ const Home: React.FC = () => {
     fontSize: '1.5rem',
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
   }
-  const linkButtonStyle: React.CSSProperties = {
-    backgroundColor: '#ff9933',
-    fontSize: '1.2rem',
-    width: '200px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '2rem',
-    marginTop: '1rem',
-  }
 
   const titleStyle: React.CSSProperties = {
     margin: '5rem auto 0.1rem',
     padding: '1rem',
     color: '#ff9933',
-  }
-
-  const addBikeStyle: React.CSSProperties = {
-    marginTop: '5rem',
-    backgroundColor: '#FDBF66',
-    padding: '2rem 0',
-    borderRadius: '1rem',
   }
 
   return (
@@ -102,13 +85,10 @@ const Home: React.FC = () => {
           <p style={descriptionStyle}>
             Première agence de location de vélos dans le Morbihan.
           </p>
-          <Anchor style={linkButtonStyle}>
-            <Anchor.Link
-              href="#velos-disponibles"
-              title="Voir les vélos"
-              className="custom-anchor-link"
-            />
-          </Anchor>
+
+          <Button href="#velos-disponibles" className="custom-anchor-link">
+            Voir les vélos
+          </Button>
         </div>
       </div>
       <Title level={2} style={titleStyle} id="velos-disponibles">
