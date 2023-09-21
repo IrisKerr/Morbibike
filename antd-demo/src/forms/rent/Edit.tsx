@@ -13,7 +13,6 @@ import { Rent } from '../../models/types'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
 import { isOverlapping } from '../../utils/rentalUtils'
-import { selectBikeById } from '../../store/reducers/bikeSlice'
 import { message } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
 
@@ -21,49 +20,47 @@ const { RangePicker } = DatePicker
 
 interface RentalFormProps {
   handleCancel: () => void
-  rentalId?: number
-  // je supprimerai selectedBikeId
-  selectedBikeId?: number
 }
 
 const datePickerStyle: React.CSSProperties = {
   marginRight: '0.5rem',
 }
 
-const Edit: React.FC<RentalFormProps> = ({
-  handleCancel,
-  rentalId,
-  // je laisse selectedBikeId ici en attendant (pour pas erreur de compilation), mais je ne compte pas le recuperer en props (recup depuis le store via id lcoation)
-  selectedBikeId,
-}) => {
+const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
+  const dispatch = useAppDispatch()
+  // state local pour stocker l'id du velo
+  const [bikeId, setBikeId] = useState<number | undefined>(undefined)
+  // set date range
   const [dateRange, setDateRange] = useState<[Dayjs | null, Dayjs | null]>([
     null,
     null,
   ])
 
+  const rentalId = useAppSelector((state) => state.rentals.selectedId)
   console.log('id location', rentalId)
-  // hook custom useDispatch
-  const dispatch = useAppDispatch()
+  const rentalsList = useSelector((state: RootState) => state.rentals.rentals)
+  console.log('locations en cours', rentalsList)
 
-  // const { id } = useParams<{ id?: string }>()
-  // console.log('id du vélo via url', id)
-  // const selectedId = id ? Number(id) :
+  const selectedRental = rentalsList.find((rental) => rentalId === rental.id)
 
-  const bikeId = useAppSelector(selectBikeById(Number(selectedBikeId)))
-  console.log('id du vélo', bikeId)
+  console.log('Location correspondante :', selectedRental)
 
-  // import du state qui contient les données de location
-  const rentals = useAppSelector((state) => state.rentals.rentals)
-  console.log('rentals', rentals)
+  if (selectedRental) {
+    const bikeId = selectedRental.velo.id
+    console.log('ID du vélo correspondant à la location :', bikeId)
+    setBikeId(bikeId)
+  }
+
+  console.log('id location', rentalId)
 
   // définir la locale française
   dayjs.locale('fr')
 
   useEffect(() => {
     // Lorsque le composant est monté, recherchez les dates de location pour le vélo sélectionné
-    const selectedBikeRents = rentals.filter((rental) => {
-      if (bikeId && typeof bikeId.id === 'number') {
-        return rental.velo.id === bikeId.id
+    const selectedBikeRents = rentalsList.filter((rental) => {
+      if (bikeId && typeof bikeId === 'number') {
+        return rental.velo.id === bikeId
       }
       return false
     })
@@ -77,11 +74,11 @@ const Edit: React.FC<RentalFormProps> = ({
       // Mettez à jour la valeur initiale du dateRange avec les dates de location
       setDateRange([startDate, endDate])
     }
-  }, [bikeId, rentals])
+  }, [bikeId, rentalsList])
 
   const editRental = () => {
     if (bikeId) {
-      if (dateRange[0] && dateRange[1] && typeof bikeId.id === 'number') {
+      if (dateRange[0] && dateRange[1] && typeof bikeId === 'number') {
         const formattedStartDate: Dayjs = dateRange[0]!
         const formattedEndDate: Dayjs = dateRange[1]!
 
@@ -107,23 +104,23 @@ const Edit: React.FC<RentalFormProps> = ({
 
         const rentalData: Rent = {
           id: Date.now(),
-          velo: { id: bikeId.id },
+          velo: { id: bikeId },
           start_date: formattedStartDate.toDate(),
           end_date: formattedEndDate.toDate(),
         }
         console.log('dates location', rentalData)
 
         // Identifid si location préexistante avec mêmes dates
-        const existingRentalIndex = rentals.findIndex(
+        const existingRentalIndex = rentalsList.findIndex(
           (rental) =>
-            rental.velo.id === bikeId.id &&
+            rental.velo.id === bikeId &&
             dayjs(rental.start_date).isSame(formattedStartDate) &&
             dayjs(rental.end_date).isSame(formattedEndDate)
         )
 
         if (existingRentalIndex !== -1) {
           // Supprimez la location préexistante de l'état global
-          const updatedRentals = [...rentals]
+          const updatedRentals = [...rentalsList]
           updatedRentals.splice(existingRentalIndex, 1)
 
           // Utilisez directement dispatch pour mettre à jour la liste de locations
@@ -132,7 +129,7 @@ const Edit: React.FC<RentalFormProps> = ({
 
         //Argument of type 'RentalState' is not assignable to parameter of type 'Rent[]'.
         // 'RentalState' is missing the following properties from type 'Rent[]':
-        if (!isOverlapping(rentalData, rentals)) {
+        if (!isOverlapping(rentalData, rentalsList)) {
           // Utilisez directement dispatch pour ajouter la location
           console.log('données location', rentalData)
 
@@ -140,7 +137,7 @@ const Edit: React.FC<RentalFormProps> = ({
           dispatch(updateRentalAction(rentalData))
           console.log('ajout effectué')
           // ajout de la location dans le tableau rents de Velo
-          dispatch(updateBikeRents({ bikeId: bikeId.id, rent: rentalData }))
+          dispatch(updateBikeRents({ bikeId: bikeId, rent: rentalData }))
 
           setDateRange([null, null])
           handleCancel()

@@ -11,7 +11,11 @@ import {
   ActionTypes,
 } from '../../../modules/super-modal/SuperModalTypes'
 
-export const EditButton = () => {
+interface Props {
+  rentalId?: number
+}
+
+export const EditButton = ({ rentalId }: Props) => {
   return (
     <>
       <Action type="update" entity={SuperModalType.velo} />
@@ -19,7 +23,7 @@ export const EditButton = () => {
       <Action type="delete" entity={SuperModalType.velo} />
       <Action type="create" entity={SuperModalType.rent} />
       {/* dois-je ici passer le rentalId en props pour l'action update de rent ? */}
-      <Action type="update" entity={SuperModalType.rent} />
+      <Action type="update" entity={SuperModalType.rent} rentalId={rentalId} />
     </>
   )
 }

@@ -1,10 +1,11 @@
 // RentCalendar.tsx
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Tag } from 'antd'
 import Action from '../../bike/action/Action'
+// import { useAppDispatch } from '../../../store/hooks'
+import { setSelectedId } from '../../../store/reducers/rentalSlice'
 import { SuperModalType } from '../../../modules/super-modal/SuperModalTypes'
 
 import dayjs from 'dayjs'
@@ -27,27 +28,27 @@ const calendarStyle: React.CSSProperties = {
 }
 
 export const OverviewCalendar: React.FC = () => {
-  const navigate = useNavigate()
-
+  const dispatch = useDispatch()
   // accès au tableau de locations depuis le state Redux
   const rentals = useSelector((state: RootState) => state.rentals.rentals)
   console.log('locations en cours', rentals)
   const bikes = useSelector((state: RootState) => state.bikes.bikes)
   console.log('vélos loués', bikes)
 
-  console.log(bikes[0].name)
-
   /// Au clic sur une date, vérifie s'il y a une réservation de vélo
   const onSelect = (date: dayjs.Dayjs) => {
+    console.log('locations', rentals)
     const rentalForDate = rentals.find(
       (rental) =>
         dayjs(rental.start_date).isBefore(date) &&
         dayjs(rental.end_date).isAfter(date)
     )
 
+    console.log('rentalforDate', rentalForDate)
+
     if (rentalForDate) {
-      // Redirige vers la page de détail du vélo en utilisant l'ID du vélo associé à la réservation
-      // navigate(`/bike/${rentalForDate.velo.id}`)
+      // je stocke l'ID de la location dans le store
+      dispatch(setSelectedId(rentalForDate.id))
     } else {
       console.error('Aucune réservation de vélo pour cette date.')
     }

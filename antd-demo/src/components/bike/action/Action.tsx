@@ -23,10 +23,10 @@ interface Props {
   entity: SuperModalType
   style?: object
   text?: string
-  rentalId?: number
+  rentalId?: number | undefined
 }
 
-export const Action = ({ type, entity, text }: Props) => {
+export const Action = ({ type, entity, text, rentalId }: Props) => {
   const dispatch = useAppDispatch()
   const buttonText = getTitle(type, entity)
   // recup de l'icone à partir de l'objet IconMap
@@ -36,7 +36,11 @@ export const Action = ({ type, entity, text }: Props) => {
     <>
       <Button
         type="primary"
-        onClick={() => dispatch(setEntity({ type: type, entity: entity }))}
+        onClick={() =>
+          dispatch(
+            setEntity({ type: type, entity: entity, rentalId: rentalId })
+          )
+        }
         icon={icon}
         className="ant-btn"
       >

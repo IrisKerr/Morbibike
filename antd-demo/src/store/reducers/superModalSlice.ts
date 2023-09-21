@@ -8,6 +8,7 @@ interface initialStateType {
   isOpen: boolean
   type: ActionTypes
   entity: SuperModalType | undefined
+  rentalId?: number | undefined
 }
 const initialState: initialStateType = {
   isOpen: false,
@@ -32,11 +33,13 @@ const superModalSlice = createSlice({
         payload: {
           type: ActionTypes
           entity: SuperModalType
+          rentalId: number | undefined
         }
       }
     ) {
       state.type = action.payload.type
       state.entity = action.payload.entity
+      state.rentalId = action.payload.rentalId
       state.isOpen = true
     },
   },

@@ -3,9 +3,11 @@ import { Rent } from '../../models/types'
 
 interface RentalState {
   rentals: Rent[]
+  selectedId: number | undefined
 }
 const initialState: RentalState = {
   rentals: [],
+  selectedId: undefined,
 }
 
 const rentalSlice = createSlice({
@@ -28,9 +30,13 @@ const rentalSlice = createSlice({
         state.rentals[index] = action.payload
       }
     },
+    setSelectedId: (state, action: PayloadAction<number>) => {
+      state.selectedId = action.payload
+    },
   },
 })
 
-export const { addRental, updateRentalList, editRental } = rentalSlice.actions
+export const { addRental, updateRentalList, editRental, setSelectedId } =
+  rentalSlice.actions
 
 export default rentalSlice.reducer
