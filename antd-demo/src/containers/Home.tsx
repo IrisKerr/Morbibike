@@ -4,6 +4,7 @@ import { RootState } from '../store/store'
 import { Typography } from 'antd'
 import { Bike } from '../components/bike/Bike'
 import { useAppSelector } from '../store/hooks'
+import BikeAddContainer from './BikeAddContainer'
 import RentCalendar from '../components/RentCalendar'
 import Image from '../../src/assets/morbibike.png'
 import { Anchor } from 'antd'
@@ -121,13 +122,7 @@ const Home: React.FC = () => {
         Découvrez-les !
       </Paragraph>
       <Bike.ListCard bikes={bikes} />
-      <div style={addBikeStyle}>
-        <Title level={4} style={titleStyle}>
-          Vous n&apos;avez pas trouvé votre bonheur ? <br /> Ajoutez votre
-          propre vélo!
-        </Title>
-        <Bike.AddCard />
-      </div>
+      <BikeAddContainer />
       <RentCalendar />
     </div>
   )

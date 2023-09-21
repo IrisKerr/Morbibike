@@ -8,6 +8,7 @@ export interface Velo {
   year: number
   bikeType: string
   color: string | undefined
+  image: string
   rents: Rent[]
 }
 

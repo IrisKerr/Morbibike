@@ -17,6 +17,7 @@ interface FormValues {
   year: number
   bikeType: string
   color: string
+  image: string
   rents: Rent[]
 }
 
@@ -143,6 +144,19 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
           {
             required: true,
             message: 'Veuillez saisir la couleur du vélo!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Image"
+        name="image"
+        rules={[
+          {
+            required: true,
+            message: `Veuillez saisir le lien de l'image du vélo!`,
           },
         ]}
       >
