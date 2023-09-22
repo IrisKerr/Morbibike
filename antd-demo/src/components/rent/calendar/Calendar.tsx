@@ -1,5 +1,5 @@
 // RentCalendar.tsx
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../../store/store'
 import { Tag } from 'antd'
@@ -29,6 +29,7 @@ const calendarStyle: React.CSSProperties = {
 
 export const OverviewCalendar: React.FC = () => {
   const dispatch = useDispatch()
+  const [calendarData, setCalendarData] = useState<any[]>([])
   // accès au tableau de locations depuis le state Redux
   const rentals = useSelector((state: RootState) => state.rentals.rentals)
   console.log('locations en cours', rentals)
@@ -81,7 +82,7 @@ export const OverviewCalendar: React.FC = () => {
             <Action
               type="update"
               entity={SuperModalType.rent}
-              text={bikes.find((bike) => bike.id === rentalDate.velo.id)?.name}
+              text={bikes.find((bike) => bike.id === rentalDate.bikeId)?.name}
               // ici je voudrais faire passer en props l'id de location pour le faire passer à Edit.tsx (formulaire de modif de location depuis la modale)
               rentalId={rentalDate.id}
             />
@@ -92,6 +93,23 @@ export const OverviewCalendar: React.FC = () => {
       date.format('D')
     )
   }
+
+  useEffect(() => {
+    // // Mettez à jour calendarData en fonction des changements dans rentals et bikes
+    // const updatedCalendarData = Array.from({ length: 30 }, (_, index) => {
+    //   const currentDate = dayjs().add(index, 'days')
+    //   const rentalsForDay = rentals.filter(
+    //     (rental) =>
+    //       dayjs(rental.start_date).isBefore(currentDate, 'day') &&
+    //       dayjs(rental.end_date).isAfter(currentDate, 'day')
+    //   )
+
+    //   return { date: currentDate, rentals: rentalsForDay }
+    // })
+    console.log('useffect !')
+
+    // setCalendarData(updatedCalendarData)
+  }, [rentals, bikes])
 
   dayjs.locale('fr') // configuration de la locale françasie
 

@@ -3,7 +3,7 @@ import { Rent } from '../models/types'
 export const isOverlapping = (newRental: Rent, existingRentals: Rent[]) => {
   return existingRentals.some((existingRental) => {
     // ne vérifie pas le chevauchement si la location concerne un autre vélo
-    if (existingRental.velo.id !== newRental.velo.id) {
+    if (existingRental.bikeId !== newRental.bikeId) {
       return false
     }
     const startA = existingRental.start_date

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { DatePicker, Button } from 'antd'
 import { addRentalAction } from '../../store/actions/rentalActions'
-import { updateBikeRents } from '../../store/reducers/bikeSlice'
+// import { updateBikeRents } from '../../store/reducers/bikeSlice'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { Rent } from '../../models/types'
 import { useSelector } from 'react-redux'
@@ -36,8 +36,9 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
   const { id } = useParams<{ id?: string }>()
   console.log('id du vélo via url', id)
   const selectedId = id ? Number(id) : undefined
-  const bikeId = useAppSelector(selectBikeById(Number(selectedId)))
-  console.log('id du vélo', bikeId)
+  console.log('selectedId', selectedId)
+  const bike = useAppSelector(selectBikeById(Number(selectedId)))
+  console.log('infos vélo', bike)
 
   // import du state qui contient les données de location
   const rentals = useAppSelector((state) => state.rentals.rentals)
@@ -47,8 +48,8 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
   dayjs.locale('fr')
 
   const handleAddRental = () => {
-    if (bikeId) {
-      if (dateRange[0] && dateRange[1] && typeof bikeId.id === 'number') {
+    if (bike) {
+      if (dateRange[0] && dateRange[1] && typeof bike.id === 'number') {
         const formattedStartDate: Dayjs = dateRange[0]!
         const formattedEndDate: Dayjs = dateRange[1]!
 
@@ -72,9 +73,11 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
           return
         }
 
+        console.log('bikeId', typeof bike.id)
+
         const rentalData: Rent = {
           id: Date.now(),
-          velo: { id: bikeId.id },
+          bikeId: bike.id,
           start_date: formattedStartDate.toDate(),
           end_date: formattedEndDate.toDate(),
         }
@@ -91,7 +94,7 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
           dispatch(addRentalAction(rentalData))
           console.log('ajout effectué')
           // ajout de la location dans le tableau rents de Velo
-          dispatch(updateBikeRents({ bikeId: bikeId.id, rent: rentalData }))
+          // dispatch(updateBikeRents({ bikeId: bikeId.id, rent: rentalData }))
 
           setDateRange([null, null])
           handleCancel()

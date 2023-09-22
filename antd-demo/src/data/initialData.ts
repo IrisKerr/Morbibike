@@ -9,7 +9,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'VTT',
     color: 'rouge',
     image: `https://images.pexels.com/photos/5930767/pexels-photo-5930767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 2,
@@ -19,7 +18,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'Vélo de route',
     color: 'vert',
     image: `https://images.pexels.com/photos/191042/pexels-photo-191042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 3,
@@ -29,7 +27,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'VTT',
     color: 'gris',
     image: `https://images.pexels.com/photos/5456097/pexels-photo-5456097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 4,
@@ -39,7 +36,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'Vélo de ville',
     color: 'jaune',
     image: `https://images.pexels.com/photos/255934/pexels-photo-255934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 5,
@@ -49,7 +45,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'VTT',
     color: 'noir',
     image: `https://images.pexels.com/photos/6567079/pexels-photo-6567079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 6,
@@ -59,7 +54,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'Vélo de route',
     color: 'rouge',
     image: `https://images.pexels.com/photos/1739649/pexels-photo-1739649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 7,
@@ -69,7 +63,6 @@ export const initialBikes: Velo[] = [
     bikeType: 'VTT',
     color: 'noir',
     image: `https://images.pexels.com/photos/6217382/pexels-photo-6217382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
   {
     id: 8,
@@ -79,6 +72,5 @@ export const initialBikes: Velo[] = [
     bikeType: 'Vélo de ville',
     color: 'bleu',
     image: `https://images.pexels.com/photos/175741/pexels-photo-175741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
-    rents: [],
   },
 ]

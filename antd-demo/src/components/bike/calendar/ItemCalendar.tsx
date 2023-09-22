@@ -43,7 +43,7 @@ export const ItemCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
       (rental) =>
         dayjs(rental.start_date).isBefore(date) &&
         dayjs(rental.end_date).isAfter(date) &&
-        rental.velo.id === bikeId
+        rental.bikeId === bikeId
     )
 
     console.log('rentalDates', rentalDates)

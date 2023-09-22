@@ -9,12 +9,11 @@ export interface Velo {
   bikeType: string
   color: string | undefined
   image: string
-  rents: Rent[]
 }
 
 export interface Rent {
   id: number
-  velo: { id: number }
+  bikeId: number
   start_date: Date | Dayjs
   end_date: Date | Dayjs
 }

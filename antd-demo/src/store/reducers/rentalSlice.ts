@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Rent } from '../../models/types'
+import { RootState } from '../store'
 
 interface RentalState {
   rentals: Rent[]
@@ -35,6 +36,20 @@ const rentalSlice = createSlice({
     },
   },
 })
+
+// Sélecteurs
+
+// sélecteur pour obtenir la liste des locations en cours
+const selectRawRentals: (state: RootState) => Rent[] = (state: RootState) =>
+  state.rentals.rentals
+
+// sélecteur pour récupérer une location via son id
+export const selectRentalById = (
+  id: number // id correspondant à la location
+) =>
+  createSelector([selectRawRentals], (rentals) =>
+    rentals.find((rental) => rental.id === id)
+  )
 
 export const { addRental, updateRentalList, editRental, setSelectedId } =
   rentalSlice.actions
