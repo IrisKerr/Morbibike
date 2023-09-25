@@ -17,13 +17,17 @@ export const ItemCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
   const { token } = theme.useToken()
 
   const wrapperStyle: React.CSSProperties = {
-    width: 300,
+    width: 400,
     border: `1px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,
+    margin: '0 auto',
+  }
+  const desktopCalendarStyle: React.CSSProperties = {
+    minWidth: '320px',
   }
 
-  const calendarStyle: React.CSSProperties = {
-    minWidth: '320px',
+  const mobileCalendarStyle: React.CSSProperties = {
+    width: '100%',
   }
 
   // accès au tableau de locations depuis le state Redux
@@ -70,7 +74,11 @@ export const ItemCalendar: React.FC<BikeCalendarProps> = ({ bikeId }) => {
           fullscreen={false}
           onPanelChange={onPanelChange}
           dateCellRender={dateCellRender}
-          style={calendarStyle}
+          style={
+            window.innerWidth >= 768
+              ? desktopCalendarStyle // Utilisation du style desktop si la largeur de l'écran est supérieure ou égale à 768px
+              : mobileCalendarStyle // Utilisation du style mobile sinon
+          }
         />
       </ConfigProvider>
     </div>

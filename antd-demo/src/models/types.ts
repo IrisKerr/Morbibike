@@ -7,7 +7,7 @@ export interface Velo {
   model: string
   year: number
   bikeType: string
-  color: string | undefined
+  color: string
   image: string
 }
 

@@ -23,14 +23,22 @@ interface Props {
   entity: SuperModalType
   style?: object
   text?: string
-  rentalId?: number | undefined
+  rentalId?: number
+  color?: string
 }
 
-export const Action = ({ type, entity, text, rentalId }: Props) => {
+export const Action = ({ type, entity, text, rentalId, color }: Props) => {
   const dispatch = useAppDispatch()
   const buttonText = getTitle(type, entity)
   // recup de l'icone à partir de l'objet IconMap
   const icon = iconMap[type]
+  console.log('couleur', color)
+
+  const buttonStyle: React.CSSProperties = color
+    ? { backgroundColor: color }
+    : {}
+
+  const buttonClassName = color ? 'custom-button' : 'ant-btn'
 
   return (
     <>
@@ -42,7 +50,9 @@ export const Action = ({ type, entity, text, rentalId }: Props) => {
           )
         }
         icon={icon}
-        className="ant-btn"
+        // className="ant-btn"
+        style={buttonStyle}
+        className={buttonClassName}
       >
         {/* {type} {entity} */}
         {text ? text : buttonText}

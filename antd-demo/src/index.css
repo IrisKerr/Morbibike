@@ -36,6 +36,30 @@ code {
 }
 
 /* Styles pour les boutons Ant Design */
+
+.custom-link-button {
+  border: none;
+  color: #ff9933;
+  background-color: white;
+}
+
+.custom-link-button:hover {
+  color: #ff5733;
+}
+
+.custom-link-icon {
+  background-color: #ff9933;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+}
+
+.custom-link-container {
+  max-height: 200px;
+  margin: 4rem auto;
+}
+
 .ant-btn {
   background-color: #ff9933 !important;
   border-color: #ff9933 !important;

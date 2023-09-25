@@ -7,7 +7,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 1',
     year: 2021,
     bikeType: 'VTT',
-    color: 'rouge',
+    color: '#e00f00',
     image: `https://images.pexels.com/photos/5930767/pexels-photo-5930767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -16,7 +16,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 2',
     year: 2022,
     bikeType: 'Vélo de route',
-    color: 'vert',
+    color: '#60a381',
     image: `https://images.pexels.com/photos/191042/pexels-photo-191042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -25,7 +25,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 3',
     year: 2021,
     bikeType: 'VTT',
-    color: 'gris',
+    color: '#5c5b54',
     image: `https://images.pexels.com/photos/5456097/pexels-photo-5456097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -34,7 +34,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 4',
     year: 2023,
     bikeType: 'Vélo de ville',
-    color: 'jaune',
+    color: '#edcd5a',
     image: `https://images.pexels.com/photos/255934/pexels-photo-255934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -43,7 +43,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 5',
     year: 2023,
     bikeType: 'VTT',
-    color: 'noir',
+    color: '#000000',
     image: `https://images.pexels.com/photos/6567079/pexels-photo-6567079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -52,7 +52,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 6',
     year: 2023,
     bikeType: 'Vélo de route',
-    color: 'rouge',
+    color: '#f50707',
     image: `https://images.pexels.com/photos/1739649/pexels-photo-1739649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -61,7 +61,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 5',
     year: 2023,
     bikeType: 'VTT',
-    color: 'noir',
+    color: '#000000',
     image: `https://images.pexels.com/photos/6217382/pexels-photo-6217382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
   {
@@ -70,7 +70,7 @@ export const initialBikes: Velo[] = [
     model: 'Modèle 3',
     year: 2023,
     bikeType: 'Vélo de ville',
-    color: 'bleu',
+    color: '#97adad',
     image: `https://images.pexels.com/photos/175741/pexels-photo-175741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`,
   },
 ]

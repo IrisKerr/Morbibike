@@ -51,6 +51,7 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
   // définir la locale française
   dayjs.locale('fr')
 
+  // useEffect pour afficher les dates de location dans le rangepicker àq chaque location sélectionnée
   useEffect(() => {
     if (selectedRental) {
       const startDate = dayjs(selectedRental.start_date)
@@ -60,6 +61,7 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
     }
   }, [selectedRental])
 
+  // fonction pour éditer/modifier la location sélectionnée
   const editRental = () => {
     if (selectedRental) {
       if (
@@ -90,27 +92,38 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
           return
         }
 
+        // création de l'objet de location stocké dans le store
         const rentalData: Rent = {
-          id: Date.now(),
+          id: selectedRental.id,
           bikeId: selectedRental.bikeId,
           start_date: formattedStartDate.toDate(),
           end_date: formattedEndDate.toDate(),
         }
         console.log('dates location editRental', rentalData)
 
-        // Identifid si les dates ont été modifiées
+        // Identifie si les dates ont été modifiées
         const datesModified =
           dayjs(rentalData.start_date).isSame(selectedRental.start_date) &&
           dayjs(rentalData.end_date).isSame(selectedRental.end_date)
 
+        console.log('Statut Modification des dates', datesModified)
+
         if (datesModified) {
-          console.log('non exécuté')
-          setDateRange([null, null])
+          console.log('dates non modifiées')
+          setDateRange([formattedStartDate, formattedEndDate])
           handleCancel()
         } else {
           const startDate = dayjs(selectedRental.start_date)
           const endDate = dayjs(selectedRental.end_date)
           setDateRange([startDate, endDate])
+
+          // outrepasser le chevauchement de date si l'id de location est le même
+          if (selectedRental.id === rentalData.id) {
+            dispatch(updateRentalAction(rentalData))
+            setDateRange([null, null])
+            handleCancel()
+            return
+          }
 
           // Identifiez si une location préexistante a les mêmes dates
           const existingRentalIndex = rentalsList.findIndex(
@@ -137,7 +150,7 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
             console.log('modification de date effectuée')
             // ajout de la location dans le tableau rents de Velo
             // dispatch(updateBikeRents({ bikeId: bikeId, rent: rentalData }))
-            setDateRange([null, null])
+            setDateRange([formattedStartDate, formattedEndDate])
             handleCancel()
           } else {
             console.log('Les dates de location se chevauchent.')

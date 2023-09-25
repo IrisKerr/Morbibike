@@ -1,18 +1,16 @@
 // RentCalendar.tsx
-import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
-import { Tag } from 'antd'
 import Action from '../../bike/action/Action'
-// import { useAppDispatch } from '../../../store/hooks'
+import { useAppDispatch } from '../../../store/hooks'
 import { setSelectedId } from '../../../store/reducers/rentalSlice'
 import { SuperModalType } from '../../../modules/super-modal/SuperModalTypes'
 
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr' // Import de la locale française
-
-// import { Rent } from '../models/types'
 import { Calendar, ConfigProvider, Typography } from 'antd'
+
 const { Title } = Typography
 
 // propriétés css du title
@@ -28,8 +26,8 @@ const calendarStyle: React.CSSProperties = {
 }
 
 export const OverviewCalendar: React.FC = () => {
-  const dispatch = useDispatch()
-  const [calendarData, setCalendarData] = useState<any[]>([])
+  const dispatch = useAppDispatch()
+
   // accès au tableau de locations depuis le state Redux
   const rentals = useSelector((state: RootState) => state.rentals.rentals)
   console.log('locations en cours', rentals)
@@ -73,7 +71,7 @@ export const OverviewCalendar: React.FC = () => {
         dayjs(rental.end_date).isAfter(date)
     )
 
-    console.log('rentalDates', rentalDates)
+    // console.log('rentalDates', rentalDates)
 
     return rentalDates ? (
       <>
@@ -85,6 +83,7 @@ export const OverviewCalendar: React.FC = () => {
               text={bikes.find((bike) => bike.id === rentalDate.bikeId)?.name}
               // ici je voudrais faire passer en props l'id de location pour le faire passer à Edit.tsx (formulaire de modif de location depuis la modale)
               rentalId={rentalDate.id}
+              color={bikes.find((bike) => bike.id === rentalDate.bikeId)?.color}
             />
           </div>
         ))}
@@ -94,28 +93,23 @@ export const OverviewCalendar: React.FC = () => {
     )
   }
 
-  useEffect(() => {
-    // // Mettez à jour calendarData en fonction des changements dans rentals et bikes
-    // const updatedCalendarData = Array.from({ length: 30 }, (_, index) => {
-    //   const currentDate = dayjs().add(index, 'days')
-    //   const rentalsForDay = rentals.filter(
-    //     (rental) =>
-    //       dayjs(rental.start_date).isBefore(currentDate, 'day') &&
-    //       dayjs(rental.end_date).isAfter(currentDate, 'day')
-    //   )
-
-    //   return { date: currentDate, rentals: rentalsForDay }
-    // })
-    console.log('useffect !')
-
-    // setCalendarData(updatedCalendarData)
-  }, [rentals, bikes])
+  // rentalDates.map((rentalsForDate) => (
+  //   <div key={dayjs().valueOf()}>
+  //     <RegisteredRentals
+  //       rentals={rentalsForDate}
+  //       bikes={bikes}
+  //       onRentalSelected={(rentalId: number) =>
+  //         handleRentalSelected(rentalId)
+  //       }
+  //     />
+  //   </div>
+  // ))
 
   dayjs.locale('fr') // configuration de la locale françasie
 
   return (
     <>
-      <Title level={2} style={titleStyle}>
+      <Title level={2} style={titleStyle} id="calendrier-locations">
         Locations en cours
       </Title>
       <ConfigProvider locale={{ locale: dayjs.locale('fr') }}>

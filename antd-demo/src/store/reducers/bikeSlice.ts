@@ -31,23 +31,16 @@ const bikeSlice = createSlice({
       const bikeIdToDelete = action.payload
       state.bikes = state.bikes.filter((bike) => bike.id !== bikeIdToDelete)
     },
-    // updateBikeRents: (
-    //   state,
-    //   action: PayloadAction<{ bikeId: number; rent: Rent }>
-    // ) => {
-    //   const { bikeId, rent } = action.payload
-    //   const updatedBikes = state.bikes.map((bike) => {
-    //     if (bike.id === bikeId) {
-    //       // Mettez à jour le tableau 'rents' du vélo associé
-    //       return {
-    //         ...bike,
-    //         rents: [...bike.rents, rent],
-    //       }
-    //     }
-    //     return bike
-    //   })
-    //   state.bikes = updatedBikes
-    // },
+    updateBikeColor: (
+      state,
+      action: PayloadAction<{ bikeId: number; color: string }>
+    ) => {
+      const { bikeId, color } = action.payload
+      const bikeToUpdate = state.bikes.find((bike) => bike.id === bikeId)
+      if (bikeToUpdate) {
+        bikeToUpdate.color = color
+      }
+    },
   },
 })
 
@@ -64,6 +57,7 @@ export const selectBikeById = (
     items.find((bike) => bike.id === id)
   )
 
-export const { addBike, editBike, deleteBike } = bikeSlice.actions // Exposez les actions pour être utilisées ailleurs
+export const { addBike, editBike, deleteBike, updateBikeColor } =
+  bikeSlice.actions // Exposez les actions pour être utilisées ailleurs
 
 export default bikeSlice.reducer // Exportez le réducteur

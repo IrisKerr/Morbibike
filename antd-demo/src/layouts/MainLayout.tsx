@@ -48,9 +48,9 @@ const contentStyle: React.CSSProperties = {
 
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
-  fontSize: '0.9rem',
-  color: 'white',
-  backgroundColor: '#ff9933',
+  fontSize: '0.8rem',
+  backgroundColor: '#faefe3',
+  color: '#EE651D',
   borderRadius: '0.5rem 0.5rem 0 0',
 }
 

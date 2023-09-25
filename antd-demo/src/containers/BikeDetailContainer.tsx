@@ -5,6 +5,7 @@ import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
 import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
+import NavigateButtons from '../components/bike/buttons/navigateButtons'
 
 const { Title, Text } = Typography
 
@@ -31,10 +32,10 @@ const BikeDetailContainer = () => {
           Détails du vélo et calendrier de location
         </Title>
         <Row gutter={[32, 16]}>
-          <Col md={{ span: 12 }} lg={{ span: 18 }}>
+          <Col md={{ span: 12 }} lg={{ span: 16 }}>
             <Bike.DetailsCard bike={selectedBike} />
           </Col>
-          <Col md={{ span: 12 }} lg={{ span: 6 }}>
+          <Col md={{ span: 12 }} lg={{ span: 8 }}>
             <Bike.ItemCalendar bikeId={bikeId} />
           </Col>
         </Row>
