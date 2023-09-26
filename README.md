@@ -39,15 +39,15 @@ npm start
 ### Mobile Version
 
 <div style="display: flex; justify-content: space-between;">
-<img src="./screenshots/bikelist%20-%20VM.png" alt="Morbibike Landingpage" width="200" />
-<img src="./screenshots/addbike - VM.png" alt="Morbibike Landingpage" width="200" />
+<img src="./screenshots/bikelist%20-%20VM.png" alt="Morbibike Landingpage - bike list" width="300" />
+<img src="./screenshots/addbike - VM.png" alt="Morbibike Landingpage - add bike" width="300" />
 </div>
 
 ### Tablet Version
 
 <div style="display: flex; justify-content: space-between;">
-<img src="./screenshots/bikedetail - VT.png" alt="Morbibike Landingpage" width="250" />
-<img src="./screenshots/bikelist - VT.png" alt="Morbibike Landingpage" width="250" />
+<img src="./screenshots/bikedetail - VT.png" alt="Morbibike bike detail" width="400" />
+<img src="./screenshots/bikelist - VT.png" alt="Morbibike bike list" width="400" />
 </div>
 
 ## Acknowledgements
