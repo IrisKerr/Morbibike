@@ -99,3 +99,13 @@ div .ant-result {
   flex-direction: column;
   justify-content: center;
 }
+
+.ant-switch {
+  &.ant-switch-checked {
+    background-color: #ff9900;
+  }
+  &:hover,
+  &:focus {
+    background-color: #ff9900;
+  }
+}

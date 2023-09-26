@@ -4,13 +4,17 @@ import { Provider } from 'react-redux'
 import { store } from './store/store' // Importez le store configuré
 import './index.css'
 import App from './App'
+import { DarkModeProvider } from './contexts/DarkModeContext'
+import './dark-theme.less'
 import reportWebVitals from './reportWebVitals'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <DarkModeProvider>
+        <App />
+      </DarkModeProvider>
     </Provider>
   </React.StrictMode>
 )

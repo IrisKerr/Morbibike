@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Button } from 'antd'
 import { Link } from 'react-scroll'
 
@@ -11,12 +10,13 @@ function LandingSection(props: Props) {
   const {} = props
 
   const mainTitleStyle: React.CSSProperties = {
-    fontSize: '3.5rem',
+    fontSize: '10vh',
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
   }
 
   const descriptionStyle: React.CSSProperties = {
     fontSize: '1.5rem',
+
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
   }
 
@@ -45,6 +45,11 @@ function LandingSection(props: Props) {
     justifyContent: 'center',
     alignItems: 'center',
     color: 'white',
+  }
+
+  if (window.innerWidth <= 768) {
+    mainTitleStyle.fontSize = '2.2rem' // Taille pour les écrans mobiles
+    descriptionStyle.fontSize = '1.1rem' // Taille pour les écrans mobiles
   }
 
   return (

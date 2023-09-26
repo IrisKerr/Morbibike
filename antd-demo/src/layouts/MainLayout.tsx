@@ -1,5 +1,5 @@
 // MainLayout.tsx
-import React, { ReactNode } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // import Header from "../components/Header"
 // import Footer from '../components/Header';
@@ -10,6 +10,10 @@ import { Link, Outlet } from 'react-router-dom'
 import SuperModal from '../modules/super-modal/SuperModal'
 import Action from '../components/bike/action/Action'
 import { SuperModalType } from '../modules/super-modal/SuperModalTypes'
+import { useDarkMode } from '../contexts/DarkModeContext' // import du hook pour le darkMode
+import { Switch } from 'antd'
+import { RiSunFill, RiMoonFill } from 'react-icons/ri'
+
 const { Header, Footer, Content } = Layout
 
 const headerStyle: React.CSSProperties = {
@@ -55,6 +59,22 @@ const footerStyle: React.CSSProperties = {
 }
 
 const MainLayout: React.FC = ({}) => {
+  const { darkMode, toggleDarkMode } = useDarkMode()
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 576)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 576)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  console.log(isSmallScreen)
   return (
     <Space
       direction="vertical"
@@ -66,8 +86,16 @@ const MainLayout: React.FC = ({}) => {
           <Link to={'/'}>
             <span style={companyTitleStyle}>Morbibike</span>
           </Link>
+          <Switch
+            checked={darkMode}
+            onChange={toggleDarkMode}
+            checkedChildren={<RiSunFill />}
+            unCheckedChildren={<RiMoonFill />}
+          />
 
-          <Action type="create" entity={SuperModalType.velo} />
+          {!isSmallScreen && (
+            <Action type="create" entity={SuperModalType.velo} />
+          )}
         </Header>
         <Content style={contentStyle}>
           <Outlet />

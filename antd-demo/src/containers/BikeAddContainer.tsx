@@ -24,10 +24,25 @@ const descriptionContainerStyle: React.CSSProperties = {
   padding: '2rem',
 }
 
-const titleStyle: React.CSSProperties = {
+const mainTitleStyle: React.CSSProperties = {
   margin: '3rem auto 0.1rem',
   padding: '1rem',
   color: '#ff9933',
+  fontSize: '1.9rem',
+}
+
+const titleStyle: React.CSSProperties = {
+  margin: '2rem auto 2rem',
+  padding: '1rem',
+  color: '#ff9933',
+  fontSize: '1.6rem',
+}
+
+if (window.innerWidth <= 768) {
+  mainTitleStyle.fontSize = '1.3rem'
+  mainTitleStyle.padding = '0rem'
+  titleStyle.fontSize = '1.1rem'
+  titleStyle.padding = '0.2rem'
 }
 
 function BikeAddContainer() {
@@ -38,12 +53,10 @@ function BikeAddContainer() {
       </Col>
       <Col xs={24} md={12}>
         <div style={descriptionContainerStyle}>
-          <Title level={2} style={titleStyle}>
+          <Title style={mainTitleStyle}>
             Vous n&apos;avez pas trouvé votre bonheur ?
           </Title>
-          <Title level={3} style={titleStyle}>
-            Ajoutez votre propre vélo!
-          </Title>
+          <Title style={titleStyle}>Ajoutez votre propre vélo!</Title>
           <Bike.AddCard />
         </div>
       </Col>
