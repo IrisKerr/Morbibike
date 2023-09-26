@@ -5,9 +5,12 @@ import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
 import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
-import NavigateButtons from '../components/bike/buttons/navigateButtons'
 
 const { Title, Text } = Typography
+
+const containerStyle: React.CSSProperties = {
+  padding: '0 1rem',
+}
 
 const titleStyle: React.CSSProperties = {
   margin: '5rem auto 1rem',
@@ -27,15 +30,15 @@ const BikeDetailContainer = () => {
   return (
     // on utilise un ternaire qui test si selected bike existe (https://www.pierre-giraud.com/javascript-apprendre-coder-cours/operateur-ternaire/)
     selectedBike ? ( //Condition en ternaire true
-      <Space direction="vertical">
+      <Space direction="vertical" style={containerStyle}>
         <Title level={3} style={titleStyle}>
           Détails du vélo et calendrier de location
         </Title>
         <Row gutter={[32, 16]}>
-          <Col md={{ span: 12 }} lg={{ span: 16 }}>
+          <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 16 }}>
             <Bike.DetailsCard bike={selectedBike} />
           </Col>
-          <Col md={{ span: 12 }} lg={{ span: 8 }}>
+          <Col xs={{ span: 24 }} md={{ span: 24 }} lg={{ span: 8 }}>
             <Bike.ItemCalendar bikeId={bikeId} />
           </Col>
         </Row>

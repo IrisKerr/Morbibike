@@ -76,14 +76,30 @@ export const OverviewCalendar: React.FC = () => {
     return rentalDates ? (
       <>
         {rentalDates.map((rentalDate) => (
-          <div key={rentalDate.id}>
+          <div
+            key={rentalDate.id}
+            style={{
+              backgroundColor: bikes.find(
+                (bike) => bike.id === rentalDate.bikeId
+              )?.color,
+              color: 'white',
+              padding: '2px 4px',
+              marginBottom: '4px',
+            }}
+          >
             <Action
               type="update"
               entity={SuperModalType.rent}
               text={bikes.find((bike) => bike.id === rentalDate.bikeId)?.name}
               // ici je voudrais faire passer en props l'id de location pour le faire passer à Edit.tsx (formulaire de modif de location depuis la modale)
               rentalId={rentalDate.id}
-              color={bikes.find((bike) => bike.id === rentalDate.bikeId)?.color}
+              style={{
+                backgroundColor: bikes.find(
+                  (bike) => bike.id === rentalDate.bikeId
+                )?.color,
+                color: 'white',
+                padding: '2px 4px',
+              }}
             />
           </div>
         ))}

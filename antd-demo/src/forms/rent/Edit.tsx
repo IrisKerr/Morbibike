@@ -25,6 +25,10 @@ const datePickerStyle: React.CSSProperties = {
   marginRight: '0.5rem',
 }
 
+const titleStyle: React.CSSProperties = {
+  color: '#ff9933',
+}
+
 const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
   const dispatch = useAppDispatch()
 
@@ -47,6 +51,8 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
 
   const rentalsList = useAppSelector((state) => state.rentals.rentals)
   console.log('liste des locations', rentalsList)
+
+  const bikes = useAppSelector((state) => state.bikes.bikes)
 
   // définir la locale française
   dayjs.locale('fr')
@@ -163,10 +169,17 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
         }
       }
     }
+
+    console.log('location selectionne', selectedRental?.bikeId)
   }
 
   return (
     <>
+      <h3 style={titleStyle}>
+        {selectedRental
+          ? bikes.find((bike) => bike.id === selectedRental.bikeId)?.name || ''
+          : ''}
+      </h3>
       <RangePicker
         value={dateRange}
         onChange={(dates) => {
