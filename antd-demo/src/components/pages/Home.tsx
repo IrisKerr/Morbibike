@@ -7,7 +7,7 @@ import { Rent } from '../rent/Rent'
 import BikeListContainer from '../../containers/BikeListContainer'
 import LandingSection from '../../containers/LandingSection'
 
-const Home: React.FC = () => {
+export const Home = () => {
   const bikes = useAppSelector((state: RootState) => state.bikes.bikes)
   console.log('vélos du store', bikes)
 

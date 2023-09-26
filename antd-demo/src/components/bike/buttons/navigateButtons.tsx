@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { LeftOutlined } from '@ant-design/icons'
 import { Row, Col } from 'antd'
 
-function NavigateButtons() {
+export const NavigateButtons = () => {
   return (
     <div className="custom-link-container">
       <Row gutter={8}>

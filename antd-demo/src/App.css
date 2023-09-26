@@ -42,28 +42,3 @@
 .body {
   font-family: 'Poppins', sans-serif;
 }
-
-/* Styles pour les boutons Ant Design */
-.ant-btn {
-  background-color: #ff9933 !important;
-  border-color: #ff9933 !important;
-  color: #ffffff;
-}
-
-.ant-btn:hover {
-  background-color: #ff5733 !important;
-  border-color: #ff5733 !important;
-  color: #ffffff;
-}
-
-.ant-picker-calendar-date-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 0.2rem;
-}
-
-.main-layout-content {
-  margin: 0;
-  padding: 0;
-}

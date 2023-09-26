@@ -1,14 +1,10 @@
 // RentalForm.tsx
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-
 import { DatePicker, Button } from 'antd'
 import { addRentalAction } from '../../store/actions/rentalActions'
-// import { updateBikeRents } from '../../store/reducers/bikeSlice'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { Rent } from '../../models/types'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
 import { isOverlapping } from '../../utils/rentalUtils'
 import { selectBikeById } from '../../store/reducers/bikeSlice'
 import { message } from 'antd'
@@ -16,7 +12,7 @@ import dayjs, { Dayjs } from 'dayjs'
 
 const { RangePicker } = DatePicker
 
-interface RentalFormProps {
+interface Props {
   handleCancel: () => void
 }
 
@@ -24,7 +20,7 @@ const datePickerStyle: React.CSSProperties = {
   marginRight: '0.5rem',
 }
 
-const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
+export const Rental = ({ handleCancel }: Props) => {
   const [dateRange, setDateRange] = useState<[Dayjs | null, Dayjs | null]>([
     null,
     null,
@@ -36,7 +32,7 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
   const { id } = useParams<{ id?: string }>()
   console.log('id du vélo via url', id)
   const selectedId = id ? Number(id) : undefined
-  console.log('selectedId', selectedId)
+
   const bike = useAppSelector(selectBikeById(Number(selectedId)))
   console.log('infos vélo', bike)
 
@@ -65,7 +61,7 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
           return
         }
 
-        // Vérifiez si la date de fin est antérieure à la date de début
+        // Vérif si la date de fin est antérieure à la date de début
         if (formattedEndDate.isBefore(formattedStartDate)) {
           message.error(
             'Les dates ne sont pas valides. La date de fin doit être ultérieure à la date de début.'
@@ -75,6 +71,7 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
 
         console.log('bikeId', typeof bike.id)
 
+        // création de l'objet de location pour stocker dans le store
         const rentalData: Rent = {
           id: Date.now(),
           bikeId: bike.id,
@@ -84,21 +81,14 @@ const Rental: React.FC<RentalFormProps> = ({ handleCancel }) => {
 
         console.log('dates location', rentalData)
 
-        //Argument of type 'RentalState' is not assignable to parameter of type 'Rent[]'.
-        // 'RentalState' is missing the following properties from type 'Rent[]':
         if (!isOverlapping(rentalData, rentals)) {
-          // Utilisez directement dispatch pour ajouter la location
-          console.log('données location', rentalData)
-
           // ajout des données de location dans le store sous Rent
           dispatch(addRentalAction(rentalData))
           console.log('ajout effectué')
-          // ajout de la location dans le tableau rents de Velo
-          // dispatch(updateBikeRents({ bikeId: bikeId.id, rent: rentalData }))
-
           setDateRange([null, null])
           handleCancel()
         } else {
+          // pas d'ajout des données de location et message erreur
           console.log('Les dates de location se chevauchent.')
           message.error('Oups.. Le vélo est déjà loué sur ces dates...')
           setDateRange([null, null])

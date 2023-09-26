@@ -3,10 +3,9 @@ import { Space, Typography, Result } from 'antd'
 import { Row, Col } from 'antd'
 import { selectBikeById } from '../store/reducers/bikeSlice'
 import { useAppSelector } from '../store/hooks'
-import Rental from '../forms/rent/Create'
 import { Bike } from '../components/bike/Bike'
 
-const { Title, Text } = Typography
+const { Title } = Typography
 
 const containerStyle: React.CSSProperties = {
   padding: '0 1rem',
@@ -22,14 +21,14 @@ const warningStyle: React.CSSProperties = {
   marginTop: '10rem',
 }
 
-const BikeDetailContainer = () => {
+export const BikeDetailContainer = () => {
   const { id } = useParams<{ id?: string }>()
   const bikeId = id ? Number(id) : undefined
   const selectedBike = useAppSelector(selectBikeById(Number(id))) //On met le find dans le reducer en creant un custom selector pour reuse le code plus facilement
   // Ne pas utiliser parseInt mais plutot un cast dans le type souhiaté ex : Number("1") = 1 et String(1) = "1"
   return (
     // on utilise un ternaire qui test si selected bike existe (https://www.pierre-giraud.com/javascript-apprendre-coder-cours/operateur-ternaire/)
-    selectedBike ? ( //Condition en ternaire true
+    selectedBike ? (
       <Space direction="vertical" style={containerStyle}>
         <Title level={3} style={titleStyle}>
           Détails du vélo et calendrier de location
@@ -44,13 +43,11 @@ const BikeDetailContainer = () => {
         </Row>
       </Space>
     ) : (
-      //Condition en ternaire false
       <Result
         status="warning"
         title="Votre vélo n'a pas été trouvé ou n'existe pas.."
         style={warningStyle}
       />
-      // possiblement utiliser le composant ant design 'result' en type error
     )
   )
 }

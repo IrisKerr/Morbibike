@@ -5,7 +5,7 @@ import { close } from '../../store/reducers/superModalSlice'
 import Delete from './Delete'
 
 export const BikeForm = () => {
-  const { isOpen, type, entity } = useAppSelector((state) => state.superModal)
+  const { type } = useAppSelector((state) => state.superModal)
   const dispatch = useAppDispatch()
 
   // pour gérer la fermeture de la modale

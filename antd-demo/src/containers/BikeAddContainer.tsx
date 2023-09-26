@@ -25,7 +25,7 @@ const descriptionContainerStyle: React.CSSProperties = {
 }
 
 const mainTitleStyle: React.CSSProperties = {
-  margin: '3rem auto 0.1rem',
+  margin: '2.4rem auto 0.1rem',
   padding: '1rem',
   color: '#ff9933',
   fontSize: '1.9rem',
@@ -43,9 +43,10 @@ if (window.innerWidth <= 768) {
   mainTitleStyle.padding = '0rem'
   titleStyle.fontSize = '1.1rem'
   titleStyle.padding = '0.2rem'
+  imageStyle.borderRadius = '2rem 2rem 0 0'
 }
 
-function BikeAddContainer() {
+export const BikeAddContainer = () => {
   return (
     <Row gutter={16} justify="center" style={containerStyle}>
       <Col xs={24} md={12} className="ant-col">

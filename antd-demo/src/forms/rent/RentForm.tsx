@@ -4,7 +4,7 @@ import Update from './Edit'
 import { close } from '../../store/reducers/superModalSlice'
 
 export const RentForm = () => {
-  const { isOpen, type, entity } = useAppSelector((state) => state.superModal)
+  const { type } = useAppSelector((state) => state.superModal)
 
   const dispatch = useAppDispatch()
 

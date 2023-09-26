@@ -24,11 +24,11 @@ const paragraphStyle: React.CSSProperties = {
   padding: '1rem',
 }
 
-interface BikeListContainerProps {
+interface Props {
   bikes: Velo[]
 }
 
-function BikeListContainer({ bikes }: BikeListContainerProps) {
+export const BikeListContainer = ({ bikes }: Props) => {
   return (
     <>
       <Title level={2} style={titleStyle} id="velos-disponibles">

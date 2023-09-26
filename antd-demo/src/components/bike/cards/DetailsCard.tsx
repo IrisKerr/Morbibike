@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { Card, Image, Row, Col } from 'antd'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../../store/hooks'
 import { updateBikeColor } from '../../../store/reducers/bikeSlice'
 import { Velo } from '../../../models/types'
-import { Bike } from '../Bike'
 import Action from '../action/Action'
 import { SuperModalType } from '../../../modules/super-modal/SuperModalTypes'
 import { ColorPicker } from 'antd'
 import type { Color } from 'antd/es/color-picker'
 
-interface BikeDetailCardProps {
+interface Props {
   bike: Velo // instance de Velo pour afficher les détails d'un vélo spécifique
   style?: object
 }
@@ -28,10 +27,7 @@ const cardStyle: React.CSSProperties = {
 }
 
 const imageContainerStyle: React.CSSProperties = {
-  // width: '300px',
-  // margin: '0.5rem auto 2rem auto',
   padding: '1rem',
-  // boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
@@ -53,8 +49,8 @@ const buttonStyle: React.CSSProperties = {
   width: '100%',
 }
 
-export const DetailsCard: React.FC<BikeDetailCardProps> = ({ bike, style }) => {
-  const dispatch = useDispatch()
+export const DetailsCard = ({ bike }: Props) => {
+  const dispatch = useAppDispatch()
   const [selectedColor, setSelectedColor] = useState(bike.color)
 
   const handleColorChange = (colorValue: Color, hex: string) => {
@@ -79,7 +75,6 @@ export const DetailsCard: React.FC<BikeDetailCardProps> = ({ bike, style }) => {
                 <span style={metaStyle}>Type de vélo:</span> {bike.bikeType}
               </p>
               <p>
-                {/* <span style={metaStyle}>Couleur:</span> {bike.color} */}
                 <span style={metaStyle}>Couleur:</span>
                 <ColorPicker
                   value={selectedColor}

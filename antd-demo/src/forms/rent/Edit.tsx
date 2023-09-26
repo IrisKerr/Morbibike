@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { selectRentalById } from '../../store/reducers/rentalSlice'
 import { DatePicker, Button } from 'antd'
-
 import {
   updateRentalAction,
   updateRentalListAction,
 } from '../../store/actions/rentalActions'
-// import { updateBikeRents } from '../../store/reducers/bikeSlice'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { Rent } from '../../models/types'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
 import { isOverlapping } from '../../utils/rentalUtils'
 import { message } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
 
 const { RangePicker } = DatePicker
 
-interface RentalFormProps {
+interface Props {
   handleCancel: () => void
 }
 
@@ -29,7 +25,7 @@ const titleStyle: React.CSSProperties = {
   color: '#ff9933',
 }
 
-const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
+export const Edit = ({ handleCancel }: Props) => {
   const dispatch = useAppDispatch()
 
   // etat local des dates pour le datepicker
@@ -90,7 +86,7 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
           return
         }
 
-        // Vérifiez si la date de fin est antérieure à la date de début
+        // Vérif si la date de fin est antérieure à la date de début
         if (formattedEndDate.isBefore(formattedStartDate)) {
           message.error(
             'Les dates ne sont pas valides. La date de fin doit être ultérieure à la date de début.'
@@ -115,10 +111,12 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
         console.log('Statut Modification des dates', datesModified)
 
         if (datesModified) {
+          // si les dates n'ont pas été modifiées, alors ajout des dates dans le rangePicker et fermeture modale
           console.log('dates non modifiées')
           setDateRange([formattedStartDate, formattedEndDate])
           handleCancel()
         } else {
+          // si dates modifiées, elles s'afficheront dans le rangepicker
           const startDate = dayjs(selectedRental.start_date)
           const endDate = dayjs(selectedRental.end_date)
           setDateRange([startDate, endDate])
@@ -131,7 +129,7 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
             return
           }
 
-          // Identifiez si une location préexistante a les mêmes dates
+          // Identifie si une location préexistante a les mêmes dates
           const existingRentalIndex = rentalsList.findIndex(
             (rental) =>
               rental.bikeId === selectedRental.bikeId &&
@@ -140,30 +138,26 @@ const Edit: React.FC<RentalFormProps> = ({ handleCancel }) => {
           )
 
           if (existingRentalIndex !== -1) {
-            // Supprimez la location préexistante de l'état global
+            // Supprime la location préexistante de l'état global
             const updatedRentals = [...rentalsList]
             updatedRentals.splice(existingRentalIndex, 1)
 
-            // Utilisez directement dispatch pour mettre à jour la liste de locations
+            // Utilise directement dispatch pour mettre à jour la liste de locations
             dispatch(updateRentalListAction(updatedRentals))
           }
 
           if (!isOverlapping(rentalData, rentalsList)) {
-            // Utilisez directement dispatch pour ajouter la location
             console.log('données de location modifiées', rentalData)
             // ajout des données de location dans le store sous Rent
             dispatch(updateRentalAction(rentalData))
             console.log('modification de date effectuée')
-            // ajout de la location dans le tableau rents de Velo
-            // dispatch(updateBikeRents({ bikeId: bikeId, rent: rentalData }))
+
             setDateRange([formattedStartDate, formattedEndDate])
             handleCancel()
           } else {
+            // message erreur si chevauchement de dates
             console.log('Les dates de location se chevauchent.')
             message.error('Oups.. Le vélo est déjà loué sur ces dates...')
-            // const startDate = dayjs(selectedRental.start_date)
-            // const endDate = dayjs(selectedRental.end_date)
-            // setDateRange([startDate, endDate])
             setDateRange(initialDateRange)
           }
         }

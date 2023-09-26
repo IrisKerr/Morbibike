@@ -13,12 +13,14 @@ export const addRentalAction = (rentalData: Rent) => {
   }
 }
 
+// action pour modifier la liste des locations du calendrier
 export const updateRentalListAction = (updatedRentals: Rent[]) => {
   return (dispatch: Dispatch<any>) => {
     dispatch(updateRentalList(updatedRentals))
   }
 }
 
+// action pour modifier une location
 export const updateRentalAction = (rentalData: Rent) => {
   return (dispatch: Dispatch<any>) => {
     dispatch(editRental(rentalData))

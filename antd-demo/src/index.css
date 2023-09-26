@@ -56,7 +56,7 @@ code {
 }
 
 .custom-link-container {
-  max-height: 200px;
+  max-width: 520px;
   margin: 4rem auto;
 }
 
@@ -108,4 +108,8 @@ div .ant-result {
   &:focus {
     background-color: #ff9900;
   }
+}
+
+.custom-button {
+  background-color: aqua !important;
 }

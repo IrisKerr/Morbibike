@@ -19,7 +19,7 @@ const initialState: initialStateType = {
 const superModalSlice = createSlice({
   name: 'superModal',
 
-  initialState: initialState, // Utilisez initialBikes comme état initial
+  initialState: initialState, // Utilise initialBikes comme état initial
   reducers: {
     open(state) {
       state.isOpen = true
@@ -45,6 +45,6 @@ const superModalSlice = createSlice({
   },
 })
 
-export const { open, close, setEntity } = superModalSlice.actions // Exposez les actions pour être utilisées ailleurs
+export const { open, close, setEntity } = superModalSlice.actions
 
-export default superModalSlice.reducer // Exportez le réducteur
+export default superModalSlice.reducer

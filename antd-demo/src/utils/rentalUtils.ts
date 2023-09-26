@@ -1,5 +1,6 @@
 import { Rent } from '../models/types'
 
+// util pour vérifier le chevauchement des dates pour la location
 export const isOverlapping = (newRental: Rent, existingRentals: Rent[]) => {
   return existingRentals.some((existingRental) => {
     // ne vérifie pas le chevauchement si la location concerne un autre vélo

@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Form, Input, Button, Select } from 'antd'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
+import { useAppDispatch } from '../../store/hooks'
 import { editBike } from '../../store/reducers/bikeSlice'
 import { selectBikeById } from '../../store/reducers/bikeSlice'
 import { useAppSelector } from '../../store/hooks'
@@ -21,12 +19,12 @@ interface FormValues {
   rents: Rent[]
 }
 
-interface CreateBikeFormProps {
+interface Props {
   handleCancel: () => void
 }
 
-const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
-  const dispatch = useDispatch()
+export const Edit = ({ handleCancel }: Props) => {
+  const dispatch = useAppDispatch()
   const [form] = Form.useForm()
   const { id } = useParams<{ id?: string }>()
   // const bikeId = id ? Number(id) : undefined
@@ -34,7 +32,7 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
   console.log(selectedBike)
 
   useEffect(() => {
-    // Mettez à jour les champs du formulaire avec les nouvelles valeurs du state
+    // Met à jour les champs du formulaire avec les nouvelles valeurs du state
     form.setFieldsValue(selectedBike)
   }, [selectedBike, form])
 
@@ -42,9 +40,9 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
     console.log('Valeurs du formulaire :', values)
 
     const updatedBikeData: Velo = {
-      // Utilisez les valeurs du formulaire pour mettre à jour le vélo
+      // Utilise les valeurs du formulaire pour mettre à jour le vélo
       id: selectedBike!.id,
-      ...values, // Utilisez les valeurs du formulaire pour mettre à jour les autres champs du vélo
+      ...values, // Utilise les valeurs du formulaire pour mettre à jour les autres champs du vélo
     }
 
     console.log('update bike', updatedBikeData)
@@ -66,7 +64,6 @@ const Edit: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
       onFinish={onFinish}
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }}
-      // initialValues={selectedBike}
     >
       <Form.Item name="id" hidden>
         <Input />

@@ -3,7 +3,7 @@ import { Card, Button, Row, Col, Image } from 'antd'
 import { Link } from 'react-router-dom'
 import { Velo } from '../../../models/types'
 
-interface BikeListProps {
+interface Props {
   bikes: Velo[]
   //   onEditClick: (bike: Velo) => void; // Callback pour gérer l'édition d'un vélo
 }
@@ -17,7 +17,7 @@ const cardStyle: React.CSSProperties = {
   justifyContent: 'space-evenly',
 }
 
-export const ListCard: React.FC<BikeListProps> = ({ bikes }) => {
+export const ListCard = ({ bikes }: Props) => {
   return (
     <div>
       <Row gutter={8} justify="center">

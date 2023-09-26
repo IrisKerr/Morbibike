@@ -4,54 +4,51 @@ import { Link } from 'react-scroll'
 
 import Image from '../../src/assets/morbibike.png'
 
-interface Props {}
+const mainTitleStyle: React.CSSProperties = {
+  fontSize: '10vh',
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+}
 
-function LandingSection(props: Props) {
-  const {} = props
+const descriptionStyle: React.CSSProperties = {
+  fontSize: '1.5rem',
 
-  const mainTitleStyle: React.CSSProperties = {
-    fontSize: '10vh',
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
-  }
+  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+}
 
-  const descriptionStyle: React.CSSProperties = {
-    fontSize: '1.5rem',
+const imageContainerStyle: React.CSSProperties = {
+  width: '100%',
+  height: '93vh',
+  position: 'relative',
+}
+const imageStyle: React.CSSProperties = {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+}
 
-    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
-  }
+const overlayStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  transition: 'background-color 0.3s ease',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: 'white',
+}
 
-  const imageContainerStyle: React.CSSProperties = {
-    width: '100%',
-    height: '93vh',
-    position: 'relative',
-  }
-  const imageStyle: React.CSSProperties = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  }
+// Taille pour les écrans mobiles
+if (window.innerWidth <= 768) {
+  mainTitleStyle.fontSize = '2.2rem'
+  descriptionStyle.fontSize = '1.1rem'
+}
 
-  const overlayStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    transition: 'background-color 0.3s ease',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'white',
-  }
-
-  if (window.innerWidth <= 768) {
-    mainTitleStyle.fontSize = '2.2rem' // Taille pour les écrans mobiles
-    descriptionStyle.fontSize = '1.1rem' // Taille pour les écrans mobiles
-  }
-
+export const LandingSection = () => {
   return (
     <div style={imageContainerStyle}>
       <img style={imageStyle} src={Image} alt="Morbibike" />

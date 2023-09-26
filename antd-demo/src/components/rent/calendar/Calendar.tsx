@@ -1,5 +1,5 @@
 // RentCalendar.tsx
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
 import Action from '../../bike/action/Action'
@@ -13,7 +13,6 @@ import { Calendar, ConfigProvider, Typography } from 'antd'
 
 const { Title } = Typography
 
-// propriétés css du title
 const titleStyle: React.CSSProperties = {
   margin: '5rem auto 1rem',
   padding: '1rem',
@@ -23,9 +22,10 @@ const titleStyle: React.CSSProperties = {
 const calendarStyle: React.CSSProperties = {
   maxWidth: '1000px',
   margin: 'auto',
+  marginBottom: '4rem',
 }
 
-export const OverviewCalendar: React.FC = () => {
+export const OverviewCalendar = () => {
   const dispatch = useAppDispatch()
 
   // accès au tableau de locations depuis le state Redux
@@ -59,9 +59,6 @@ export const OverviewCalendar: React.FC = () => {
     console.log(value.format('YYYY-MM-DD'), mode)
   }
 
-  // couleurs des tags
-  // const colors = ['#5CC1B9', '#1BA29B', '#00544E', '#2DA4A0']
-
   // render la donnée dans la cellule du calendrier
   const dateCellRender = (date: dayjs.Dayjs) => {
     // vérif si la date est bien une date de location conforme
@@ -79,27 +76,15 @@ export const OverviewCalendar: React.FC = () => {
           <div
             key={rentalDate.id}
             style={{
-              backgroundColor: bikes.find(
-                (bike) => bike.id === rentalDate.bikeId
-              )?.color,
-              color: 'white',
-              padding: '2px 4px',
-              marginBottom: '4px',
+              backgroundColor: 'white',
+              marginBottom: '0.2rem',
             }}
           >
             <Action
               type="update"
               entity={SuperModalType.rent}
               text={bikes.find((bike) => bike.id === rentalDate.bikeId)?.name}
-              // ici je voudrais faire passer en props l'id de location pour le faire passer à Edit.tsx (formulaire de modif de location depuis la modale)
               rentalId={rentalDate.id}
-              style={{
-                backgroundColor: bikes.find(
-                  (bike) => bike.id === rentalDate.bikeId
-                )?.color,
-                color: 'white',
-                padding: '2px 4px',
-              }}
             />
           </div>
         ))}
@@ -108,18 +93,6 @@ export const OverviewCalendar: React.FC = () => {
       date.format('D')
     )
   }
-
-  // rentalDates.map((rentalsForDate) => (
-  //   <div key={dayjs().valueOf()}>
-  //     <RegisteredRentals
-  //       rentals={rentalsForDate}
-  //       bikes={bikes}
-  //       onRentalSelected={(rentalId: number) =>
-  //         handleRentalSelected(rentalId)
-  //       }
-  //     />
-  //   </div>
-  // ))
 
   dayjs.locale('fr') // configuration de la locale françasie
 

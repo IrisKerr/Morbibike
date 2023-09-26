@@ -1,6 +1,5 @@
-import React from 'react'
 import { Form, Input, Button, Select } from 'antd'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../store/hooks'
 import { addBike } from '../../store/reducers/bikeSlice'
 
 const { Option } = Select
@@ -14,12 +13,12 @@ interface FormValues {
   image: string
 }
 
-interface CreateBikeFormProps {
+interface Props {
   handleCancel: () => void
 }
 
-const Create: React.FC<CreateBikeFormProps> = ({ handleCancel }) => {
-  const dispatch = useDispatch()
+export const Create = ({ handleCancel }: Props) => {
+  const dispatch = useAppDispatch()
   const [form] = Form.useForm()
 
   const onFinish = (values: FormValues) => {

@@ -1,17 +1,21 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-// imports composants
+import { DarkModeProvider } from './contexts/DarkModeContext'
+// imports composant routes
 import AppRoutes from './routes/routes'
-import MainLayout from './layouts/MainLayout'
-// imports styles CSS
+
+// imports styles et store
 import './App.css'
 import './index.css'
 import './custom-theme.less'
+import './dark-theme.less'
 import { store } from './store/store'
 
 const App: React.FC = () => (
   <Provider store={store}>
-    <AppRoutes />
+    <DarkModeProvider>
+      <AppRoutes />
+    </DarkModeProvider>
   </Provider>
 )
 

@@ -1,10 +1,4 @@
-// MainLayout.tsx
 import React, { useState, useEffect } from 'react'
-
-// import Header from "../components/Header"
-// import Footer from '../components/Header';
-
-// imports de AntDesign
 import { Layout, Space } from 'antd'
 import { Link, Outlet } from 'react-router-dom'
 import SuperModal from '../modules/super-modal/SuperModal'
@@ -33,6 +27,16 @@ const headerStyle: React.CSSProperties = {
   zIndex: 100,
   boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
 }
+
+const headerContainerStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+}
+
+const switchStyle: React.CSSProperties = {
+  margin: '0 0.6rem',
+}
+
 const companyTitleStyle: React.CSSProperties = {
   color: '#ff9933',
   fontSize: '1.2rem',
@@ -58,10 +62,13 @@ const footerStyle: React.CSSProperties = {
   borderRadius: '0.5rem 0.5rem 0 0',
 }
 
-const MainLayout: React.FC = ({}) => {
+export const MainLayout = () => {
+  // hook pour le darkMode
   const { darkMode, toggleDarkMode } = useDarkMode()
+  // état local pour gérer responsive au niveau mobile (test)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 576)
 
+  // gérer redimensionnement de la fenêtre
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 576)
@@ -75,6 +82,7 @@ const MainLayout: React.FC = ({}) => {
   }, [])
 
   console.log(isSmallScreen)
+
   return (
     <Space
       direction="vertical"
@@ -86,16 +94,19 @@ const MainLayout: React.FC = ({}) => {
           <Link to={'/'}>
             <span style={companyTitleStyle}>Morbibike</span>
           </Link>
-          <Switch
-            checked={darkMode}
-            onChange={toggleDarkMode}
-            checkedChildren={<RiSunFill />}
-            unCheckedChildren={<RiMoonFill />}
-          />
+          <div style={headerContainerStyle}>
+            <Switch
+              checked={darkMode}
+              onChange={toggleDarkMode}
+              checkedChildren={<RiSunFill />}
+              unCheckedChildren={<RiMoonFill />}
+              style={switchStyle}
+            />
 
-          {!isSmallScreen && (
-            <Action type="create" entity={SuperModalType.velo} />
-          )}
+            {!isSmallScreen && (
+              <Action type="create" entity={SuperModalType.velo} />
+            )}
+          </div>
         </Header>
         <Content style={contentStyle}>
           <Outlet />
