@@ -1,4 +1,4 @@
-import { Form, Input, Button, Select } from 'antd'
+import { Form, Input, Button, Select, message } from 'antd'
 import { useAppDispatch } from '../../store/hooks'
 import { addBike } from '../../store/reducers/bikeSlice'
 
@@ -27,6 +27,8 @@ export const Create = ({ handleCancel }: Props) => {
     const addNewBikeWithId = { ...values, id: Date.now(), rents: [] } // Utilisation de la timestamp comme ID pour simplifier
     try {
       dispatch(addBike(addNewBikeWithId))
+      // Afficher un message de succès
+      message.success('Le vélo a été ajouté avec succès!')
       // réinitialisation du formulaire
       form.resetFields()
       // fermeture de la modale

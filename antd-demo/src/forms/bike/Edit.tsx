@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Form, Input, Button, Select } from 'antd'
+import { Form, Input, Button, Select, message } from 'antd'
 import { useAppDispatch } from '../../store/hooks'
 import { editBike } from '../../store/reducers/bikeSlice'
 import { selectBikeById } from '../../store/reducers/bikeSlice'
@@ -48,6 +48,8 @@ export const Edit = ({ handleCancel }: Props) => {
     console.log('update bike', updatedBikeData)
     try {
       dispatch(editBike(updatedBikeData))
+      // Afficher un message de succès
+      message.success('Le vélo a été modifié avec succès!')
       // réinitialisation du formulaire
       form.resetFields()
       // fermeture de la modale

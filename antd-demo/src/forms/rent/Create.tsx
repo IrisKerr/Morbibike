@@ -85,6 +85,8 @@ export const Rental = ({ handleCancel }: Props) => {
           // ajout des données de location dans le store sous Rent
           dispatch(addRentalAction(rentalData))
           console.log('ajout effectué')
+          // Afficher un message de succès
+          message.success('La location a été enregistrée avec succès!')
           setDateRange([null, null])
           handleCancel()
         } else {

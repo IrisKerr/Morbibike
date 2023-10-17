@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { selectRentalById } from '../../store/reducers/rentalSlice'
-import { DatePicker, Button } from 'antd'
+import { DatePicker, Button, message } from 'antd'
 import {
   updateRentalAction,
   updateRentalListAction,
@@ -8,7 +8,6 @@ import {
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { Rent } from '../../models/types'
 import { isOverlapping } from '../../utils/rentalUtils'
-import { message } from 'antd'
 import dayjs, { Dayjs } from 'dayjs'
 
 const { RangePicker } = DatePicker
@@ -146,10 +145,12 @@ export const Edit = ({ handleCancel }: Props) => {
             dispatch(updateRentalListAction(updatedRentals))
           }
 
-          if (!isOverlapping(rentalData, rentalsList)) {
+          if (isOverlapping(rentalData, rentalsList)) {
             console.log('données de location modifiées', rentalData)
             // ajout des données de location dans le store sous Rent
             dispatch(updateRentalAction(rentalData))
+            // Afficher un message de succès
+            message.success('La location a été modifiée avec succès!')
             console.log('modification de date effectuée')
 
             setDateRange([formattedStartDate, formattedEndDate])
