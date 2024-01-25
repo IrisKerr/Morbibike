@@ -16,7 +16,7 @@ const { Title } = Typography
 const titleStyle: React.CSSProperties = {
   margin: '5rem auto 1rem',
   padding: '1rem',
-  color: '#ff9933',
+  color: '#ffffff',
 }
 
 const calendarStyle: React.CSSProperties = {

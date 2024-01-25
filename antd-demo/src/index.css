@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,12 +7,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Istok Web', sans-serif;
 }
 
 /* override main-layout */
@@ -26,29 +36,20 @@ code {
   padding: 0.8rem;
   margin-top: 2rem;
   color: white !important;
-  background-color: #ff9933;
+  background-color: #ffffff;
   font-size: 1rem;
   height: 50px !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
+  min-width: 250px !important;
 }
 
 /* Styles pour les boutons Ant Design */
 
-.custom-link-button {
-  border: none;
-  color: #ff9933;
-  background-color: white;
-}
-
-.custom-link-button:hover {
-  color: #ff5733;
-}
-
 .custom-link-icon {
-  background-color: #ff9933;
+  background-color: #1b5454;
   color: white;
   padding: 0.3rem;
   border-radius: 50%;
@@ -61,15 +62,15 @@ code {
 }
 
 .ant-btn {
-  background-color: #ff9933 !important;
-  border-color: #ff9933 !important;
+  background-color: #1b5454 !important;
+  border-color: #1b5454 !important;
   color: #ffffff;
   min-width: 160px;
 }
 
 .ant-btn:hover {
-  background-color: #ff5733 !important;
-  border-color: #ff5733 !important;
+  background-color: #367171 !important;
+  border-color: #367171 !important;
   color: #ffffff;
 }
 
@@ -112,4 +113,9 @@ div .ant-result {
 
 .custom-button {
   background-color: aqua !important;
+}
+
+.ant-card .ant-card-head {
+  border-bottom: #0f1717;
+  color: white;
 }

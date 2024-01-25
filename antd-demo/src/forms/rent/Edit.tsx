@@ -21,7 +21,7 @@ const datePickerStyle: React.CSSProperties = {
 }
 
 const titleStyle: React.CSSProperties = {
-  color: '#ff9933',
+  color: '#3d5757',
 }
 
 export const Edit = ({ handleCancel }: Props) => {

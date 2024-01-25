@@ -12,12 +12,12 @@ const { Header, Footer, Content } = Layout
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'left',
-  color: '#EE651D',
+  color: '#ffffff',
   height: 64,
   paddingInline: 50,
   lineHeight: '64px',
   fontWeight: 800,
-  backgroundColor: '#fff',
+  backgroundColor: '#1a2323',
   fontSize: '1.5rem',
   display: 'flex',
   justifyContent: 'space-between',
@@ -25,7 +25,6 @@ const headerStyle: React.CSSProperties = {
   position: 'sticky',
   top: 0,
   zIndex: 100,
-  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
 }
 
 const headerContainerStyle: React.CSSProperties = {
@@ -38,8 +37,8 @@ const switchStyle: React.CSSProperties = {
 }
 
 const companyTitleStyle: React.CSSProperties = {
-  color: '#ff9933',
-  fontSize: '1.2rem',
+  color: 'white',
+  fontSize: '1.8rem',
   fontWeight: 'bold',
 }
 
@@ -50,21 +49,18 @@ const contentStyle: React.CSSProperties = {
   alignItems: 'center',
   minHeight: '86vh',
   lineHeight: '120px',
-  color: '#EE651D',
-  backgroundColor: '#fff',
+  color: 'white',
+  backgroundColor: '#1a2323',
 }
 
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
   fontSize: '0.8rem',
-  backgroundColor: '#faefe3',
-  color: '#EE651D',
-  borderRadius: '0.5rem 0.5rem 0 0',
+  backgroundColor: '#030f0e',
+  color: 'white',
 }
 
 export const MainLayout = () => {
-  // hook pour le darkMode
-  const { darkMode, toggleDarkMode } = useDarkMode()
   // état local pour gérer responsive au niveau mobile (test)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 576)
 
@@ -95,14 +91,6 @@ export const MainLayout = () => {
             <span style={companyTitleStyle}>Morbibike</span>
           </Link>
           <div style={headerContainerStyle}>
-            <Switch
-              checked={darkMode}
-              onChange={toggleDarkMode}
-              checkedChildren={<RiSunFill />}
-              unCheckedChildren={<RiMoonFill />}
-              style={switchStyle}
-            />
-
             {!isSmallScreen && (
               <Action type="create" entity={SuperModalType.velo} />
             )}

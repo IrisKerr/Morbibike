@@ -15,6 +15,9 @@ const cardStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-evenly',
+  backgroundColor: '#1f3030b5',
+  border: '#0f1717',
+  color: '#ffffff',
 }
 
 export const ListCard = ({ bikes }: Props) => {

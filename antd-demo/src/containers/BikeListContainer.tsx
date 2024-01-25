@@ -13,7 +13,7 @@ const { Title, Paragraph } = Typography
 const titleStyle: React.CSSProperties = {
   margin: '5rem auto 0.1rem',
   padding: '1rem',
-  color: '#ff9933',
+  color: '#ffffff',
 }
 
 const paragraphStyle: React.CSSProperties = {
@@ -22,6 +22,7 @@ const paragraphStyle: React.CSSProperties = {
   maxWidth: '700px',
   margin: '1rem auto',
   padding: '1rem',
+  color: '#ffffff',
 }
 
 interface Props {

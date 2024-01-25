@@ -27,14 +27,14 @@ const descriptionContainerStyle: React.CSSProperties = {
 const mainTitleStyle: React.CSSProperties = {
   margin: '2.4rem auto 0.1rem',
   padding: '1rem',
-  color: '#ff9933',
+  color: '#ffffff',
   fontSize: '1.9rem',
 }
 
 const titleStyle: React.CSSProperties = {
   margin: '2rem auto 2rem',
   padding: '1rem',
-  color: '#ff9933',
+  color: '#ffffff',
   fontSize: '1.6rem',
 }
 
