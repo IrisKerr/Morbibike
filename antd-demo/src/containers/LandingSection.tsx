@@ -5,14 +5,11 @@ import { Link } from 'react-scroll'
 import Image from '../../src/assets/morbibike.png'
 
 const mainTitleStyle: React.CSSProperties = {
-  fontSize: '10vh',
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+  fontSize: '8vh',
 }
 
 const descriptionStyle: React.CSSProperties = {
-  fontSize: '1.5rem',
-
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)',
+  fontSize: '1.2rem',
 }
 
 const imageContainerStyle: React.CSSProperties = {
@@ -24,16 +21,16 @@ const imageStyle: React.CSSProperties = {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  opacity: '0.9',
 }
 
 const overlayStyle: React.CSSProperties = {
   position: 'absolute',
-  top: 0,
-  left: 0,
+  top: '0',
+  left: '0',
   width: '100%',
   height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  backgroundColor: '#3333339b',
   transition: 'background-color 0.3s ease',
   display: 'flex',
   flexDirection: 'column',

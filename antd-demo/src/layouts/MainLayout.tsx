@@ -12,12 +12,11 @@ const { Header, Footer, Content } = Layout
 
 const headerStyle: React.CSSProperties = {
   textAlign: 'left',
-  color: '#ffffff',
   height: 64,
   paddingInline: 50,
   lineHeight: '64px',
   fontWeight: 800,
-  backgroundColor: '#1a2323',
+  backgroundColor: '#314947',
   fontSize: '1.5rem',
   display: 'flex',
   justifyContent: 'space-between',
@@ -25,6 +24,7 @@ const headerStyle: React.CSSProperties = {
   position: 'sticky',
   top: 0,
   zIndex: 100,
+  boxShadow: '2px 4px 8px #969695b7',
 }
 
 const headerContainerStyle: React.CSSProperties = {
@@ -37,8 +37,8 @@ const switchStyle: React.CSSProperties = {
 }
 
 const companyTitleStyle: React.CSSProperties = {
-  color: 'white',
-  fontSize: '1.8rem',
+  color: '#ffffff',
+  fontSize: '1.4rem',
   fontWeight: 'bold',
 }
 
@@ -50,14 +50,14 @@ const contentStyle: React.CSSProperties = {
   minHeight: '86vh',
   lineHeight: '120px',
   color: 'white',
-  backgroundColor: '#1a2323',
+  backgroundColor: '#f2f0e5dc',
 }
 
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
   fontSize: '0.8rem',
-  backgroundColor: '#030f0e',
-  color: 'white',
+  backgroundColor: '#f2f0e5',
+  color: '#212424b5',
 }
 
 export const MainLayout = () => {

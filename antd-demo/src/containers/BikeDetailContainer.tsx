@@ -12,9 +12,9 @@ const containerStyle: React.CSSProperties = {
 }
 
 const titleStyle: React.CSSProperties = {
-  margin: '5rem auto 1rem',
+  margin: '3rem auto 2rem',
   padding: '1rem',
-  color: '#ffffff',
+  color: '#212424b5',
 }
 
 const warningStyle: React.CSSProperties = {

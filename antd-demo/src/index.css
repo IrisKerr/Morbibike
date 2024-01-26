@@ -21,6 +21,7 @@ p {
 h1,
 h2 {
   font-family: 'Istok Web', sans-serif;
+  margin: 1rem auto;
 }
 
 /* override main-layout */
@@ -30,23 +31,45 @@ h2 {
   padding: 0 !important;
 }
 
+/* Styles pour les boutons Ant Design */
+
+.ant-btn {
+  background-color: #314947 !important;
+  border-color: #314947 !important;
+  color: #ffffff;
+  min-width: 160px;
+}
+
+.ant-btn:hover {
+  background-color: #367171 !important;
+  border-color: #367171 !important;
+  color: #ffffff;
+}
+
 /* Home */
 .custom-anchor-link {
   font-size: 1rem;
   padding: 0.8rem;
   margin-top: 2rem;
   color: white !important;
-  background-color: #ffffff;
-  font-size: 1rem;
-  height: 50px !important;
+  border: 1px solid rgb(255, 255, 255) !important;
+  background-color: rgba(255, 255, 255, 0.115) !important;
+  font-size: 0.9rem;
+  height: 60px !important;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
-  min-width: 250px !important;
+  min-width: 230px !important;
+  transition: 0.3s ease-in-out;
 }
 
-/* Styles pour les boutons Ant Design */
+.custom-anchor-link:hover {
+  transform: translateY(-10px);
+  background-color: rgba(255, 255, 255, 0.115) !important;
+  border-color: #ffffff !important;
+  color: #ffffff;
+}
 
 .custom-link-icon {
   background-color: #1b5454;
@@ -59,19 +82,6 @@ h2 {
 .custom-link-container {
   max-width: 520px;
   margin: 4rem auto;
-}
-
-.ant-btn {
-  background-color: #1b5454 !important;
-  border-color: #1b5454 !important;
-  color: #ffffff;
-  min-width: 160px;
-}
-
-.ant-btn:hover {
-  background-color: #367171 !important;
-  border-color: #367171 !important;
-  color: #ffffff;
 }
 
 .ant-picker-calendar-date-content {
@@ -101,21 +111,14 @@ div .ant-result {
   justify-content: center;
 }
 
-.ant-switch {
-  &.ant-switch-checked {
-    background-color: #ff9900;
-  }
-  &:hover,
-  &:focus {
-    background-color: #ff9900;
-  }
+.custom-link-button {
+  border: none;
+  background-color: #f2f0e5;
+  transition: 0.3s ease-in-out;
 }
 
-.custom-button {
-  background-color: aqua !important;
+.custom-link-button:hover {
+  transform: translateY(-10px);
 }
 
-.ant-card .ant-card-head {
-  border-bottom: #0f1717;
-  color: white;
-}
+/* Header button */

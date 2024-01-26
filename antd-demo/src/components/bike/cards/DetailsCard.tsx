@@ -24,8 +24,8 @@ const cardStyle: React.CSSProperties = {
   margin: '0.5rem auto 2rem auto',
   maxWidth: '700px',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
-  backgroundColor: '#c8d3d3',
-  border: '#c8d3d3',
+  backgroundColor: '#7388884b',
+  border: '#7388884b',
 }
 
 const imageContainerStyle: React.CSSProperties = {

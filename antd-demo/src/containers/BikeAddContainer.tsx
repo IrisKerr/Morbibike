@@ -10,6 +10,7 @@ const containerStyle: React.CSSProperties = {
   maxWidth: '1000px',
   minHeight: '500px',
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+  backgroundColor: '#ffffff',
 }
 
 const imageStyle: React.CSSProperties = {
@@ -17,7 +18,7 @@ const imageStyle: React.CSSProperties = {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  backgroundColor: 'white',
 }
 
 const descriptionContainerStyle: React.CSSProperties = {
@@ -27,15 +28,15 @@ const descriptionContainerStyle: React.CSSProperties = {
 const mainTitleStyle: React.CSSProperties = {
   margin: '2.4rem auto 0.1rem',
   padding: '1rem',
-  color: '#ffffff',
-  fontSize: '1.9rem',
+  color: '#212424b5',
+  fontSize: '1.6rem',
 }
 
 const titleStyle: React.CSSProperties = {
   margin: '2rem auto 2rem',
   padding: '1rem',
-  color: '#ffffff',
-  fontSize: '1.6rem',
+  color: '#212424b5',
+  fontSize: '1.2rem',
 }
 
 if (window.innerWidth <= 768) {
