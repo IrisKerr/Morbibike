@@ -49,9 +49,9 @@ h2 {
   font-size: 1rem;
   padding: 0.8rem;
   margin-top: 2rem;
-  color: white !important;
-  border: 1px solid rgb(255, 255, 255) !important;
-  background-color: rgba(255, 255, 255, 0.115) !important;
+  color: #f2f0e5 !important;
+  border: 2px solid #314947 !important;
+  background-color: #314947 !important;
   font-size: 0.9rem;
   height: 60px !important;
   display: flex;
@@ -64,9 +64,6 @@ h2 {
 
 .custom-anchor-link:hover {
   transform: translateY(-10px);
-  background-color: rgba(255, 255, 255, 0.115) !important;
-  border-color: #ffffff !important;
-  color: #ffffff;
 }
 
 .custom-link-icon {
@@ -160,4 +157,135 @@ div .ant-result {
 .bike-container-btn {
   display: flex;
   justify-content: center;
+}
+/* 
+Landing page */
+
+.landing-section {
+  display: flex;
+  min-height: 93vh;
+}
+
+.landing-container-image {
+  width: 50%;
+  display: flex;
+}
+
+.landing-container-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-container-title {
+  font-size: 8vh;
+  color: #314947;
+}
+
+.landing-container-paragraph {
+  font-size: 1.1rem;
+  color: #314947;
+}
+
+/* 
+SVG */
+
+.svg-container {
+  position: relative;
+  display: block;
+  width: 50%;
+}
+
+.svg-content {
+  position: relative;
+  display: block;
+}
+
+.svg-content svg {
+  position: absolute;
+  top: 800;
+  left: 0;
+  display: block;
+  width: 1200px;
+  height: 900px;
+}
+
+@media only screen and (min-device-width: 250px) and (max-device-width: 768px) {
+  .landing-section {
+    flex-direction: column;
+  }
+
+  .svg-container {
+    display: block;
+    width: 100%;
+  }
+
+  .svg-content svg {
+    width: 400px;
+    height: 500px;
+  }
+
+  .landing-container-image {
+    height: 45vh;
+    width: 100%;
+  }
+
+  .landing-container-text {
+    height: 45vh;
+    width: 100%;
+  }
+
+  .landing-container-title {
+    font-size: 6vh;
+  }
+
+  .landing-container-paragraph {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1020px) {
+  .landing-section {
+    flex-direction: column;
+  }
+
+  .svg-content svg {
+    width: 800px;
+    height: 700px;
+  }
+
+  .landing-container-image {
+    height: 50vh;
+    width: 100%;
+  }
+
+  .landing-container-text {
+    height: 45vh;
+    width: 100%;
+  }
+
+  .landing-container-title {
+    font-size: 6.5vh;
+  }
+}
+
+@media only screen and (min-device-width: 1020px) and (max-device-width: 1080px) {
+  .svg-content svg {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media only screen and (min-device-width: 1080px) and (max-device-width: 1280px) {
+  .svg-content svg {
+    width: 800px;
+    height: 650px;
+  }
+
+  .landing-container-paragraph {
+    font-size: 1rem;
+  }
 }
