@@ -32,8 +32,11 @@ export const ListCard = ({ bikes }: Props) => {
           >
             <Card key={bike.id} title={bike.name} style={cardStyle}>
               <Image src={bike.image} />
-              <Link to={`/bike/${bike.id}`}>
-                <Button type="primary" className="ant-btn margin-top">
+              <Link to={`/bike/${bike.id}`} className="bike-container-btn">
+                <Button
+                  type="primary"
+                  className="ant-btn bike-detail-btn margin-top"
+                >
                   Voir détails
                 </Button>
               </Link>

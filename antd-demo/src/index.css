@@ -14,13 +14,9 @@ code {
     monospace;
 }
 
-p {
-  font-family: 'Poppins', sans-serif;
-}
-
 h1,
 h2 {
-  font-family: 'Istok Web', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 1rem auto;
 }
 
@@ -37,7 +33,9 @@ h2 {
   background-color: #314947 !important;
   border-color: #314947 !important;
   color: #ffffff;
-  min-width: 160px;
+  min-width: 150px;
+  box-shadow: none;
+  font-size: 0.7rem;
 }
 
 .ant-btn:hover {
@@ -111,14 +109,55 @@ div .ant-result {
   justify-content: center;
 }
 
-.custom-link-button {
-  border: none;
-  background-color: #f2f0e5;
+/* Navigation links */
+
+.nav-link {
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: 0 1rem;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 15px;
+  left: 0;
+  background-color: white;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+/* Bike Card */
+.ant-card {
   transition: 0.3s ease-in-out;
 }
 
-.custom-link-button:hover {
-  transform: translateY(-10px);
+.ant-card:hover {
+  transform: translateY(-3px);
 }
 
-/* Header button */
+.ant-card-head-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #212424b5;
+}
+
+.bike-container-btn {
+  display: flex;
+  justify-content: center;
+}

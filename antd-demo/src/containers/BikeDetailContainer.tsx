@@ -15,6 +15,8 @@ const titleStyle: React.CSSProperties = {
   margin: '3rem auto 2rem',
   padding: '1rem',
   color: '#212424b5',
+  fontFamily: 'Poppins',
+  fontSize: '1.65rem',
 }
 
 const warningStyle: React.CSSProperties = {

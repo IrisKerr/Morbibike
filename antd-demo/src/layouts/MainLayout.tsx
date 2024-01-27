@@ -4,9 +4,7 @@ import { Link, Outlet } from 'react-router-dom'
 import SuperModal from '../modules/super-modal/SuperModal'
 import Action from '../components/bike/action/Action'
 import { SuperModalType } from '../modules/super-modal/SuperModalTypes'
-import { useDarkMode } from '../contexts/DarkModeContext' // import du hook pour le darkMode
-import { Switch } from 'antd'
-import { RiSunFill, RiMoonFill } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
 
 const { Header, Footer, Content } = Layout
 
@@ -32,14 +30,11 @@ const headerContainerStyle: React.CSSProperties = {
   alignItems: 'center',
 }
 
-const switchStyle: React.CSSProperties = {
-  margin: '0 0.6rem',
-}
-
 const companyTitleStyle: React.CSSProperties = {
   color: '#ffffff',
-  fontSize: '1.4rem',
+  fontSize: '1.2rem',
   fontWeight: 'bold',
+  fontFamily: 'Poppins',
 }
 
 const contentStyle: React.CSSProperties = {
@@ -61,9 +56,21 @@ const footerStyle: React.CSSProperties = {
 }
 
 export const MainLayout = () => {
+  const navigate = useNavigate()
   // état local pour gérer responsive au niveau mobile (test)
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 576)
 
+  const toHomePage = () => {
+    navigate('/')
+  }
+
+  const toBikesList = () => {
+    navigate('/#velos-disponibles')
+  }
+
+  const toRentCalendar = () => {
+    navigate('/#calendrier-locations')
+  }
   // gérer redimensionnement de la fenêtre
   useEffect(() => {
     const handleResize = () => {
@@ -87,12 +94,28 @@ export const MainLayout = () => {
     >
       <Layout>
         <Header style={headerStyle}>
-          <Link to={'/'}>
-            <span style={companyTitleStyle}>Morbibike</span>
-          </Link>
+          <a href="/" onClick={toHomePage} style={companyTitleStyle}>
+            Morbibike
+          </a>
           <div style={headerContainerStyle}>
             {!isSmallScreen && (
-              <Action type="create" entity={SuperModalType.velo} />
+              <>
+                <a
+                  href="#velos-disponibles"
+                  onClick={toBikesList}
+                  className="nav-link"
+                >
+                  Vélos
+                </a>
+                <a
+                  href="#calendrier-locations"
+                  onClick={toRentCalendar}
+                  className="nav-link"
+                >
+                  Locations
+                </a>
+                <Action type="create" entity={SuperModalType.velo} />
+              </>
             )}
           </div>
         </Header>
@@ -100,7 +123,7 @@ export const MainLayout = () => {
           <Outlet />
         </Content>
         <Footer style={footerStyle}>
-          © 2023 Morbibike • Tous droits réservés
+          © 2024 IrisKerr • Tous droits réservés
         </Footer>
         <SuperModal />
       </Layout>

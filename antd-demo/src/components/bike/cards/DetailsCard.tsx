@@ -26,6 +26,7 @@ const cardStyle: React.CSSProperties = {
   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
   backgroundColor: '#7388884b',
   border: '#7388884b',
+  fontFamily: 'Poppins',
 }
 
 const imageContainerStyle: React.CSSProperties = {

@@ -14,13 +14,15 @@ const titleStyle: React.CSSProperties = {
   margin: '5rem auto 0.1rem',
   padding: '1rem',
   color: '#212424b5',
+  fontFamily: 'Poppins',
+  fontSize: '1.75rem',
 }
 
 const paragraphStyle: React.CSSProperties = {
   fontSize: '0.9rem',
   lineHeight: '2',
-  maxWidth: '700px',
-  margin: '1rem auto',
+  maxWidth: '950px',
+  margin: '1rem auto 3rem',
   padding: '1rem',
   color: '#212424b5',
 }
