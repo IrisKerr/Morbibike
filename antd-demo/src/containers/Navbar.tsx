@@ -27,17 +27,16 @@ export const Navbar = () => {
   const toBikesList = () => {
     setShouldCloseDrawer(true)
     navigate('/#velos-disponibles')
-    console.log('cc')
   }
 
   const toRentCalendar = () => {
     setShouldCloseDrawer(true)
-    navigate({ pathname: '/', hash: 'calendrier-locations' })
+    navigate('/#calendrier-locations')
   }
 
   const toAddBike = () => {
+    setShouldCloseDrawer(true)
     navigate('/#ajouter-velo')
-    onClose()
   }
 
   const [visible, setVisible] = useState(false)
@@ -88,16 +87,21 @@ export const Navbar = () => {
         </Button>
         <Drawer
           placement="left"
-          closable={false}
+          closable={true}
           onClose={onClose}
           visible={visible}
+          className="navbar-mobile-drawer"
         >
-          <Menu mode="inline" defaultSelectedKeys={['1']}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            className="navbar-mobile-menu"
+          >
             <Menu.Item key="1">
               <a
                 href="#velos-disponibles"
                 onClick={toBikesList}
-                className="navbar-desktop-list-item"
+                className="navbar-mobile-item"
               >
                 Vélos
               </a>
@@ -106,16 +110,16 @@ export const Navbar = () => {
               <a
                 href="#calendrier-locations"
                 onClick={toRentCalendar}
-                className="navbar-desktop-list-item"
+                className="navbar-mobile-item"
               >
                 Locations
               </a>
             </Menu.Item>
-            <Menu.Item key="3" onClick={toAddBike}>
+            <Menu.Item key="3">
               <a
                 href="#ajouter-velo"
                 onClick={toAddBike}
-                className="navbar-desktop-list-item"
+                className="navbar-mobile-item"
               >
                 Ajouter un vélo
               </a>

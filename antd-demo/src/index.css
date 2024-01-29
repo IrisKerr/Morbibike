@@ -194,11 +194,27 @@ div .ant-result {
 
   .navbar-mobile-burger {
     padding: 0;
+    margin-left: 5rem;
   }
 
   .navbar-mobile-burger-icon {
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+  }
+
+  .navbar-mobile-drawer,
+  .navbar-mobile-menu {
+    background-color: #f2f0e5 !important;
+  }
+
+  .ant-menu-item-selected {
+    background-color: #314947 !important;
+    color: white !important;
+    font-size: 0.9rem;
+  }
+
+  .navbar-mobile-item {
+    font-size: 0.9rem;
   }
 }
 
