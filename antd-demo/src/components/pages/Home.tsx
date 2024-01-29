@@ -28,7 +28,10 @@ export const Home = () => {
         <BikeListContainer bikes={bikes} />
       </section>
 
-      <BikeAddContainer />
+      <section id="ajouter-velo">
+        <BikeAddContainer />
+      </section>
+
       <section id="calendrier-locations">
         <Rent.OverviewCalendar />
       </section>

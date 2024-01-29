@@ -106,9 +106,47 @@ div .ant-result {
   justify-content: center;
 }
 
-/* Navigation links */
+/* Navigation links - Navbar */
 
-.nav-link {
+.navbar {
+  text-align: left;
+  height: 64px;
+  padding-inline: 50px;
+  line-height: 64px;
+  font-weight: 800;
+  background-color: #314947;
+  font-size: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 2px 4px 8px #969695b7;
+}
+
+@media only screen and (min-device-width: 769px) {
+  .navbar-mobile {
+    display: none;
+  }
+}
+
+.navbar-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-desktop-logo {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
+
+.navbar-desktop-list {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-desktop-list-item {
   color: #ffffff;
   font-size: 0.8rem;
   font-weight: 400;
@@ -118,11 +156,11 @@ div .ant-result {
   text-decoration: none;
 }
 
-.nav-link:hover {
+.navbar-desktop-list-item:hover {
   color: #ffffff;
 }
 
-.nav-link:before {
+.navbar-desktop-list-item:before {
   content: '';
   position: absolute;
   width: 0;
@@ -134,9 +172,34 @@ div .ant-result {
   transition: all 0.3s ease-in-out;
 }
 
-.nav-link:hover::before {
+.navbar-desktop-list-item:hover::before {
   visibility: visible;
   width: 100%;
+}
+
+/* Navbar mobile */
+
+@media only screen and (max-device-width: 768px) {
+  .navbar-desktop {
+    display: none;
+  }
+
+  .navbar-mobile {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0;
+  }
+
+  .navbar-mobile-burger {
+    padding: 0;
+  }
+
+  .navbar-mobile-burger-icon {
+    color: white;
+    font-size: 1.8rem;
+  }
 }
 
 /* Bike Card */
