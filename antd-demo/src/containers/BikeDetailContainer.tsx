@@ -7,22 +7,6 @@ import { Bike } from '../components/bike/Bike'
 
 const { Title } = Typography
 
-const containerStyle: React.CSSProperties = {
-  padding: '0 1rem',
-}
-
-const titleStyle: React.CSSProperties = {
-  margin: '3rem auto 2rem',
-  padding: '1rem',
-  color: '#212424b5',
-  fontFamily: 'Poppins',
-  fontSize: '1.65rem',
-}
-
-const warningStyle: React.CSSProperties = {
-  marginTop: '10rem',
-}
-
 export const BikeDetailContainer = () => {
   const { id } = useParams<{ id?: string }>()
   const bikeId = id ? Number(id) : undefined
@@ -31,8 +15,8 @@ export const BikeDetailContainer = () => {
   return (
     // on utilise un ternaire qui test si selected bike existe (https://www.pierre-giraud.com/javascript-apprendre-coder-cours/operateur-ternaire/)
     selectedBike ? (
-      <Space direction="vertical" style={containerStyle}>
-        <Title level={3} style={titleStyle}>
+      <Space direction="vertical" className="bike-container">
+        <Title level={3} className="bike-container-title">
           Détails du vélo et calendrier de location
         </Title>
         <Row gutter={[32, 16]}>
@@ -48,7 +32,6 @@ export const BikeDetailContainer = () => {
       <Result
         status="warning"
         title="Votre vélo n'a pas été trouvé ou n'existe pas.."
-        style={warningStyle}
       />
     )
   )

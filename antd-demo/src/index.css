@@ -289,3 +289,35 @@ SVG */
     font-size: 1rem;
   }
 }
+
+/* Bike detail page */
+
+.bike-container {
+  padding: 0 1rem;
+}
+
+.bike-container-title {
+  margin: 3rem auto 2rem;
+  padding: 1rem;
+  color: #212424b5 !important;
+  font-family: 'Poppins';
+  font-size: 1.4rem !important;
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1285px) {
+  .bike-container-title {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1080px) {
+  .bike-container-title {
+    font-size: 1.2rem !important;
+  }
+}
+
+@media only screen and (min-device-width: 240px) and (max-device-width: 767px) {
+  .bike-container-title {
+    font-size: 1.05rem !important;
+  }
+}
