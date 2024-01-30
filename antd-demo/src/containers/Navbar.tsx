@@ -89,7 +89,7 @@ export const Navbar = () => {
           placement="left"
           closable={true}
           onClose={onClose}
-          visible={visible}
+          open={visible}
           className="navbar-mobile-drawer"
         >
           <Menu

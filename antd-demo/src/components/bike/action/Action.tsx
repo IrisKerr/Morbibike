@@ -32,7 +32,6 @@ export const Action = ({ type, entity, text, rentalId, color }: Props) => {
   const buttonText = getTitle(type, entity)
   // recup de l'icone à partir de l'objet IconMap
   const icon = iconMap[type]
-  console.log('couleur', color)
 
   const buttonStyle: React.CSSProperties = color
     ? { backgroundColor: color }
